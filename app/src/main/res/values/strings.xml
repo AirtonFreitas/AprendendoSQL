@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">Aprendendo SQL</string>
+    <string name="nameApp">Aprendendo SQL</string>
+    <string name="textIntroducao">Um banco de dados é uma coleção organizada de informações, ou dados, estruturadas. Normalmente armazenadas eletrônicamente em um sistema de computador. Um banco de dados é geralmente controlado por um sistema de gerenciamento de banco de dados</string>
+    <string name="textTable">O Banco de dados pode ser comparado a uma planilha de informações. Sendo que cada coluna corresponde a um Atributo.</string>
+    <string name="textDescricao">Cada linha de informação é conhecida como Tupla. No exemplo acima por exemplo, temos um cadastro de uma pessoa com os eguintes dados:</string>
+    <string name="textDescricaoTupla">Nome: Marcia,  Sobrenome: Brandão,
+        Nascida em 15/01/1995,
+        Telefone (31)99314-5498 e CPF 65845415417</string>
+    <string name="introducaoSGBD"> Para manipular os dados em nossa base precisamos de um SGBD, que é o Sistema de Gerenciamento de Banco de Dados.
+       \nVisto que aprendemos o conceito, vamos partir para a prática do SQL (Structure Query Language).
+       \nEm nosso caso usaremos o <b>SQLite</b>, mas devemos lembrar que existem outros SGDB que também fazem a mesma função de manipular dados armazenados.
+        Como dito, o nosso será o <b>SQLite</b>.
+    </string>
+    <string name="nomeBotao">next</string>
+    <string name="nomeBotaoVoltar">back</string>
+    <string name="sql">A Linguagem SQL pode ser dividida em DML (Data Manipulation Language) e DDL (Data Definition Language).
+    \nOnde DML é voltada para Manipulação dos Dados e DDL voltada para Definição dos Dados.
+    </string>
+    <string name="insert">- Insere dados em uma Tabela</string>
+    <string name="update">- Altera dados de uma Tabela</string>
+    <string name="select">- Seleciona dados em uma Tabela</string>
+    <string name="delete">- Deleta dados de uma Tabela</string>
+    <string name="drop">- Apaga uma Tabela</string>
+    <string name="alter">- Altera a estrutura de uma Tabela</string>
+    <string name="create">- Cria uma Tabela</string>
+
+    <string name="create_tit">Aprendendo SQL - CREATE</string>
+    <string name="select_tit">Aprendendo SQL - SELECT</string>
+    <string name="drop_tit">Aprendendo SQL - DROP</string>
+    <string name="delete_tit">Aprendendo SQL - DELETE</string>
+    <string name="update_tit">Aprendendo SQL - UPDATE</string>
+    <string name="alter_tit">Aprendendo SQL - ALTER TABLE</string>
+    <string name="insert_tit">Aprendendo SQL - INSERT</string>
+
+
+    <string name="instruction_create">O Create tem a função de criar a tabela no banco de dados.
+        \nA query deve conter o seguinte padrão:
+    </string>
+    <string name="instruction_select">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+    <string name="instruction_drop">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+    <string name="instruction_delete">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+    <string name="instruction_update">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+    <string name="instruction_alter">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+    <string name="instruction_insert">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+
+    <string name="instruction_create2">CREATE TABLE CLIENTE
+        \n(CODIGO INT, 
+        \nNOME CHAR, 
+        \nCPF CHAR)</string>
+    <string name="instruction_select2">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+    <string name="instruction_drop2">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+    <string name="instruction_delete2">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+    <string name="instruction_update2">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+    <string name="instruction_alter2">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+    <string name="instruction_insert2">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+
+
+    <string name="tiposdeDadosSQL">
+        Alguns dos tipos de Dados são:
+        \n
+        \n<b>INT</b> - Número Inteiro de -2.147.483.648 à 2.147.483.647;
+        \n<b>DECIMAL</b>
+        \n<b>NUMERIC</b>
+        \n<b>SMALLINT</b> - Número Inteiro de -32768 à 32767;
+        \n<b>MONEY</b> - Valores monetários ou de moeda de -922.337.203.685.477,5808 à 922.337.203.685.477,5807
+        \n<b>FLOAT</b>
+        \n<b>REAL</b>
+        \n<b>DATE</b> - Data;
+        \n<b>DATETIME</b> - Data e Hora;
+        \n<b>CHAR</b> - Tipos de dados de caractere que sejam de tamanho fixo;
+        \n<b>VARCHAR</b> - Tipos de dados de caractere que sejam de tamanho variável;
+        \n<b>TEXT</b> - Tipos de dados fixos e de comprimento variável para armazenar dados binários e de caracteres não Unicode e Unicode grandes.
+        \nEntre outros.
+    </string>
+
+    <string name="create_descricao">Seguindo a query do exemplo, a orientação é que crie uma Tabela com o nome CLIENTE. E que tenha as Colunas:
+        \nCODIGO do tipo INT;
+        \nNOME do tipo CHAR;
+        \nCPF do tipo CHAR.
+    </string>
+
+
+</resources>
