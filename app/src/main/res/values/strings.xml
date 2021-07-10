@@ -1,12 +1,29 @@
 <resources>
     <string name="app_name">Aprendendo SQL</string>
     <string name="nameApp">Aprendendo SQL</string>
+    <string name="tiposdeDadosSQL">
+        Alguns dos tipos de Dados são:
+        \n
+        \n<b>INT</b> - Número Inteiro de -2.147.483.648 à 2.147.483.647;
+        \n<b>DECIMAL</b>
+        \n<b>NUMERIC</b>
+        \n<b>SMALLINT</b> - Número Inteiro de -32768 à 32767;
+        \n<b>MONEY</b> - Valores monetários ou de moeda de -922.337.203.685.477,5808 à 922.337.203.685.477,5807
+        \n<b>FLOAT</b>
+        \n<b>REAL</b>
+        \n<b>DATE</b> - Data;
+        \n<b>DATETIME</b> - Data e Hora;
+        \n<b>CHAR</b> - Tipos de dados de caractere que sejam de tamanho fixo;
+        \n<b>VARCHAR</b> - Tipos de dados de caractere que sejam de tamanho variável;
+        \n<b>TEXT</b> - Tipos de dados fixos e de comprimento variável para armazenar dados binários e de caracteres não Unicode e Unicode grandes.
+        \nEntre outros.
+    </string>
     <string name="textIntroducao">Um banco de dados é uma coleção organizada de informações, ou dados, estruturadas. Normalmente armazenadas eletrônicamente em um sistema de computador. Um banco de dados é geralmente controlado por um sistema de gerenciamento de banco de dados</string>
     <string name="textTable">O Banco de dados pode ser comparado a uma planilha de informações. Sendo que cada coluna corresponde a um Atributo.</string>
     <string name="textDescricao">Cada linha de informação é conhecida como Tupla. No exemplo acima por exemplo, temos um cadastro de uma pessoa com os eguintes dados:</string>
     <string name="textDescricaoTupla">Nome: Marcia,  Sobrenome: Brandão,
         Nascida em 15/01/1995,
-        Telefone (31)99314-5498 e CPF 65845415417</string>
+        Telefone (31)99314-5498 e CPF 65845415187</string>
     <string name="introducaoSGBD"> Para manipular os dados em nossa base precisamos de um SGBD, que é o Sistema de Gerenciamento de Banco de Dados.
        \nVisto que aprendemos o conceito, vamos partir para a prática do SQL (Structure Query Language).
        \nEm nosso caso usaremos o <b>SQLite</b>, mas devemos lembrar que existem outros SGDB que também fazem a mesma função de manipular dados armazenados.
@@ -30,7 +47,7 @@
     <string name="drop_tit">Aprendendo SQL - DROP</string>
     <string name="delete_tit">Aprendendo SQL - DELETE</string>
     <string name="update_tit">Aprendendo SQL - UPDATE</string>
-    <string name="alter_tit">Aprendendo SQL - ALTER TABLE</string>
+    <string name="alter_tit">Aprendendo SQL - ALTER</string>
     <string name="insert_tit">Aprendendo SQL - INSERT</string>
 
 
@@ -39,46 +56,108 @@
     </string>
     <string name="instruction_select">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
     <string name="instruction_drop">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
-    <string name="instruction_delete">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+    <string name="instruction_delete">Neste momento você estará apagando qualquer linha do banco de dados que atenda as condições que você colocou dentro do Where.
+        \n No caso acima apagamos o cliente que tem o código = 2.
+        \n Mas poderíamos apagar usando outras colunas como referencia.
+        Por exemplo, apagar todos os clientes que possuem o CPF vazio. Ou que possui um CPF específico.
+        \n Temos que tomar cuidado, pois se executarmos uma query sem as condições definidas, ela vai executar a ação para todas as linhas da tabela.
+        \n A query <b><font color="#ff0000">DELETE FROM CLIENTE</font></b> deletaria TODAS as linhas da tabela.
+    </string>
     <string name="instruction_update">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
     <string name="instruction_alter">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
-    <string name="instruction_insert">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+    <string name="instruction_insert2">
+        INSERT INTO <font color="#ff0000">CLIENTE</font> (<font color="#00ff00">CODIGO</font>, <font color="#00ff00">NOME</font>, <font color="#00ff00">CPF</font>)
+        \nVALUES
+        \n (<font color="#00ff00">1</font>, <font color="#00ff00">"''AIRTON S.''"</font>, <font color="#00ff00">"''154.854.846-21''"</font>),
+        \n (<font color="#00ff00">2</font>, <font color="#00ff00">"''JOAO C.''"</font>, <font color="#00ff00">"''664.844.646-24''"</font>),
+        \n (<font color="#00ff00">3</font>, <font color="#00ff00">"''MARIA S.''"</font>, <font color="#00ff00">"''194.747.966-34''"</font>);
+    </string>
 
-    <string name="instruction_create2">CREATE TABLE CLIENTE
-        \n(CODIGO INT, 
-        \nNOME CHAR, 
-        \nCPF CHAR)</string>
-    <string name="instruction_select2">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
-    <string name="instruction_drop2">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
-    <string name="instruction_delete2">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
-    <string name="instruction_update2">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
-    <string name="instruction_alter2">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
-    <string name="instruction_insert2">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+    <string name="instruction_create2">CREATE TABLE <font color="#ff0000">CLIENTE</font>
+        \n(<font color="#00ff00">CODIGO</font> <font color="#0000ff">INT</font>,
+        \n<font color="#00ff00">NOME</font> <font color="#0000ff">CHAR</font>,
+        \n<font color="#00ff00">CPF</font> <font color="#0000ff">CHAR</font>)</string>
+
+    <string name="query_example_create">CREATE TABLE</string>
+    <string name="query_example_nometabela">NOME DA TABELA</string>
+    <string name="query_example_primcol">(PRIMEIRA COLUNA + TIPO ,</string>
+    <string name="query_example_segcol">SEGUNDA COLUNA + TIPO ,</string>
+    <string name="query_example_ultcol">ULTIMA COLUNA + TIPO)</string>
 
 
-    <string name="tiposdeDadosSQL">
-        Alguns dos tipos de Dados são:
+    <string name="instruction_select2">
+        SELECT <font color="#0000ff">*</font> FROM <font color="#ff0000">CLIENTE</font>
+    </string>
+    <string name="instruction_drop2">DROP TABLE <font color="#ff0000">CLIENTE</font></string>
+    <string name="instruction_delete2">DELETE FROM <font color="#ff0000">CLIENTE</font>
+        \nWHERE <font color="#00ff00">CODIGO</font> = <font color="#00ff00">2</font></string>
+    <string name="instruction_update2">UPDATE CLIENTE SET NOME = "AIRTON SIQUEIRA" WHERE CODIGO = 1</string>
+    <string name="instruction_alter_renomeando">ALTER TABLE <font color="#ff0000">CLIENTE</font>
+        \nRENAME COLUMN <font color="#00ff00">CODIGO</font>
+        \nTO  <font color="#00ff00">COD</font></string>
+    <string name="instruction_alter_excluindo">ALTER TABLE <font color="#ff0000">CLIENTE</font>
+        \nDROP COLUMN <font color="#00ff00">TELEFONE</font></string>
+    <string name="instruction_alter_adicionando">ALTER TABLE <font color="#ff0000">CLIENTE</font>
+        \nADD (<font color="#00ff00">TELEFONE</font> <font color="#0000ff">INT</font>)
+    </string>
+
+    <string name="alter_instruction_renomeando">Com uma tabela já criada, é possível renomear uma coluna dentro da tabela. Para trocar o nome da coluna, são as instruções abaixo.</string>
+    <string name="alter_instriction_adicionando">Mesmo após criar uma tabela, as vezes é necessário acrescentar uma coluna na tabela. Por exemplo no caso abaixo, iremos adicionar a coluna <font color="#00ff00">TELEFONE</font> dentro da tabela <font color="#ff0000">CLIENTE</font>.</string>
+    <string name="alter_instruction_excluindo">Também é possível excluir uma coluna dentro da tabela. No exemplo abaixo, vamos apagar a coluna <font color="#00ff00">TELEFONE</font> da tabela <font color="#ff0000">CLIENTE</font>. </string>
+
+
+
+    <string name="create_descricao">Seguindo a query do exemplo, a orientação é que crie uma Tabela com o nome <font color="#FF0000">CLIENTE</font>. E que tenha as Colunas:
+        \n<font color="#00ff00">CODIGO</font> do tipo <font color="#0000FF">INT</font>;
+        \n<font color="#00ff00">NOME</font> do tipo <font color="#0000FF">CHAR</font>;
+        \n<font color="#00ff00">CPF</font> do tipo <font color="#0000FF">CHAR</font>.
+    </string>
+    <string name="insert_descricao">Seguindo a query do exemplo, a orientação é que insira dados na tabela <font color="#FF0000">CLIENTE</font>. Referente as Colunas:
+         <font color="#00ff00">CODIGO</font> ,
+         <font color="#00ff00">NOME</font> e
+         <font color="#00ff00">CPF</font>.
+        \nE abaixo a instrução VALUES com os valores que desejam inserir na tabela.
+    </string>
+
+    <string name="delete_descricao">Seguindo a query do exemplo, a orientação é que apague os dados na tabela <font color="#FF0000">CLIENTE</font>, onde(where) o valor do
+        <font color="#00ff00">CODIGO</font>
+        seja igual a <font color="#00ff00">2</font>.
+        \nPoderiamos acrescentar outras condições para essa operação usando Operadores Lógicos.
+    </string>
+
+    <string name="drop_descricao">Seguindo a query do exemplo, a orientação é que apague a tabela <font color="#FF0000">CLIENTE</font>.
         \n
-        \n<b>INT</b> - Número Inteiro de -2.147.483.648 à 2.147.483.647;
-        \n<b>DECIMAL</b>
-        \n<b>NUMERIC</b>
-        \n<b>SMALLINT</b> - Número Inteiro de -32768 à 32767;
-        \n<b>MONEY</b> - Valores monetários ou de moeda de -922.337.203.685.477,5808 à 922.337.203.685.477,5807
-        \n<b>FLOAT</b>
-        \n<b>REAL</b>
-        \n<b>DATE</b> - Data;
-        \n<b>DATETIME</b> - Data e Hora;
-        \n<b>CHAR</b> - Tipos de dados de caractere que sejam de tamanho fixo;
-        \n<b>VARCHAR</b> - Tipos de dados de caractere que sejam de tamanho variável;
-        \n<b>TEXT</b> - Tipos de dados fixos e de comprimento variável para armazenar dados binários e de caracteres não Unicode e Unicode grandes.
-        \nEntre outros.
+        \nVai reamente <b>deletar</b> a tabela e <b>todos os dados</b> dela.
+        \nVamos testar?
     </string>
 
-    <string name="create_descricao">Seguindo a query do exemplo, a orientação é que crie uma Tabela com o nome CLIENTE. E que tenha as Colunas:
-        \nCODIGO do tipo INT;
-        \nNOME do tipo CHAR;
-        \nCPF do tipo CHAR.
+
+    <string name="create_pratica">Colocando em Prática. Siga o exemplo abaixo, Para que possa seguir as próximas querys com mais facilidade. Então recomendamos que siga o exemplo proposto.</string>
+    <string name="insert_pratica">Após termos a nossa tabela CLIENTE criada, podemos agora inserir dados nela. Siga o exemplo abaixo:</string>
+    <string name="select_pratica">O SELECT é um comando para buscar dados que já estão gravados na tabela.</string>
+    <string name="delete_pratica">O DELETE é um comando para apagar dados que já estão gravados na tabela.</string>
+    <string name="drop_pratica">O DROP é um comando para apagar a tabela criada.</string>
+    <string name="update_pratica">UPDATE</string>
+    <string name="alter_pratica">O ALTER é um comando usado para alterar uma tabela já criada.
+        \nÉ possível <b>Adicionar uma Coluna</b>, <b>Excluir uma Coluna</b>, ou até mesmo <b>Renomear uma Coluna</b>.
+        \nVamos ver essas 3 opções, mas o comando <b>ALTER</b> possui mais opções para edição de uma tabela.
     </string>
 
+    <string name="alter_pratica_renomear">Neste momento nós estamos alterando a coluna <b><font color="#00ff00">CODIGO</font></b> para <b><font color="#00ff00">COD</font></b>.
+        Fique à vontade para testar abaixo.
+    </string>
+
+    <string name="alter_pratica_deletar">Neste momento nós apagamos a coluna <b><font color="#00ff00">TELEFONE</font></b> da tabela <b><font color="#ff0000">CLIENTE</font></b>.
+    </string>
+
+    <string name="alter_pratica_adicionar">Neste momento nós adicionamos uma coluna <b><font color="#00ff00">TELEFONE</font></b> na tabela <b><font color="#ff0000">CLIENTE</font></b>.
+    </string>
+
+    <string name="escolhaTipoApp">Agora seguiremos nosso estudo e em cada página, aprenderemos como aplicar as querys nosso banco de dados.
+        \nSugerimos que siga exatamente o modelo proposto de query, pois a medida que formos aprofundando nos comandos, fica um pouco mais fácil para acompanhar, caso você tenha criado suas tabelas personalizadas.
+    </string>
+    <string name="alter_renomeando"><b><font color="#ffffff">RENOMEANDO UMA COLUNA</font></b></string>
+    <string name="alter_adicionando"><b><font color="#ffffff">ADICIONANDO UMA COLUNA</font></b></string>
+    <string name="alter_excluindo"><b><font color="#ffffff">EXCLUINDO UMA COLUNA</font></b></string>
 
 </resources>

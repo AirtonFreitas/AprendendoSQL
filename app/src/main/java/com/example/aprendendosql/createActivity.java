@@ -34,23 +34,20 @@ public class createActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Digite a query, por favor.", Toast.LENGTH_LONG).show();
                 }else{
                     String querytext = query.getText().toString();
-                 //   Toast.makeText(getApplicationContext(), querytext, Toast.LENGTH_LONG).show();
-
+                    //   Toast.makeText(getApplicationContext(), querytext, Toast.LENGTH_LONG).show();
                     try{
                         SQLiteDatabase bancoDados = openOrCreateDatabase( "NovoBanco",MODE_PRIVATE, null);
                         bancoDados.execSQL(querytext);
                         Toast.makeText(getApplicationContext(), "Comando enviado com sucesso!", Toast.LENGTH_LONG).show();
+                        bancoDados.close();
                     }catch(Exception e){
                         e.printStackTrace();
-                        Log.e("Erro ao Criar Tabela",e.toString());
+                        //Log.e("Erro ao Criar Tabela",e.toString());
                         Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                     }
                 }
             }
         });
-
-
-
         backButotn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +56,6 @@ public class createActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,10 +63,5 @@ public class createActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-
-
     }
 }

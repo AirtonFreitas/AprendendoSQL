@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundapp"
-
-    tools:context=".tipodeDadosSQL">
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp"
+    android:fillViewport="true">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"    tools:context=".tipodeDadosSQL">
 
     <TextView
         android:id="@+id/textView1"
@@ -33,19 +38,17 @@
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
 
-    <Button
-        android:id="@+id/buttonIDback"
-        android:layout_width="80dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/rouded_corner"
-        android:text="@string/nomeBotaoVoltar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/buttonIDback"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rouded_corner"
+            android:text="@string/nomeBotaoVoltar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

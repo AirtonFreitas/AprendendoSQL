@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class createInstruction extends AppCompatActivity {
 
-    private Button backButotn, nextButton, bttipoDados;
+    private Button backButotn, nextButton;
+    private TextView cliqueAqui;
 
 
     @Override
@@ -19,9 +21,9 @@ public class createInstruction extends AppCompatActivity {
 
         backButotn = findViewById(R.id.buttonIDback);
         nextButton = findViewById(R.id.buttonIDnext);
-        bttipoDados = findViewById(R.id.btid);
+        cliqueAqui = findViewById(R.id.tipodeDadosID);
 
-        bttipoDados.setOnClickListener(new View.OnClickListener() {
+        cliqueAqui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(createInstruction.this, tipodeDadosSQL.class);

@@ -60,6 +60,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Abaixo temos um exemplo real de Banco de Dados"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -97,7 +98,7 @@
     <Button
         android:id="@+id/buttonIDnext"
         android:layout_width="80dp"
-        android:layout_height="20dp"
+        android:layout_height="25dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/rouded_corner"

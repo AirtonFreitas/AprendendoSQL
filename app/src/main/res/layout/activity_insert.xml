@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundapp"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp"
+    android:fillViewport="true">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
     tools:context=".insertActivity">
+
 
     <ImageView
         android:id="@+id/imageView20"
@@ -16,6 +23,21 @@
         app:layout_constraintEnd_toStartOf="@+id/textView1"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/datainserticon" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#838383"
+            android:padding="10dp"
+            android:text="@string/instruction_insert2"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView1" />
 
     <TextView
         android:id="@+id/textView1"
@@ -32,60 +54,88 @@
 
     <EditText
         android:id="@+id/queryID"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="352dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="digite a query aqui.."
+        android:inputType="textLongMessage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
-        android:id="@+id/buttonIDnext"
-        android:layout_width="80dp"
+        android:id="@+id/btn"
+        android:layout_width="120dp"
         android:layout_height="20dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/rouded_corner"
-        android:text="@string/nomeBotao"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginTop="60dp"
+        android:background="@drawable/rouded_corner_cinza"
+        android:text="enviar query"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/queryID" />
 
-    <Button
-        android:id="@+id/buttonIDback"
-        android:layout_width="80dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/rouded_corner"
-        android:text="@string/nomeBotaoVoltar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/buttonIDnext"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rouded_corner"
+            android:text="@string/nomeBotao"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <Button
+            android:id="@+id/buttonIDback"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rouded_corner"
+            android:text="@string/nomeBotaoVoltar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="INSERT"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="302dp" />
-
-    <TextView
-        android:id="@+id/textView27"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:padding="10dp"
-        android:text="TextView"
+        android:text="@string/insert_pratica"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/insertexample" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/insert_descricao"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn" />
 
-
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
