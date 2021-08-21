@@ -25,25 +25,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:padding="10dp"
-        android:text="@string/tiposdeDadosSQL"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:padding="10dp"
+            android:text="@string/tiposdeDadosSQL"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
 
         <Button
             android:id="@+id/buttonIDback"
             android:layout_width="80dp"
             android:layout_height="25dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginStart="@dimen/esp_btnlateral"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="@dimen/esp_btnInferior"
             android:background="@drawable/rouded_corner"
             android:text="@string/nomeBotaoVoltar"
             app:layout_constraintBottom_toBottomOf="parent"

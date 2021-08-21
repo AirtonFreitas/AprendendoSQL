@@ -9,13 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 
 import static com.example.aprendendosql.R.*;
 
@@ -23,10 +19,9 @@ public class selectActivity extends AppCompatActivity {
 
     private Button backButotn, nextButton, botao;
     private EditText query;
-    private ListView lst_teste;
     private TextView testeText;
+    private ImageView colar;
 
-    SimpleCursorAdapter AdapterLista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +32,14 @@ public class selectActivity extends AppCompatActivity {
         query = findViewById(id.queryID);
         botao = findViewById(id.button);
         testeText = findViewById(id.testTextID);
+        colar = findViewById(R.id.imageView6);
 
-
-        lst_teste = findViewById(id.listID);
+        colar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                query.setText("SELECT * FROM CLIENTE");
+            }
+        });
 
         botao.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,32 +54,30 @@ public class selectActivity extends AppCompatActivity {
 
                         Cursor cursor = bancoDados.rawQuery(querytext,null);
 
-                        //String text = cursor.getString(1);
+                        String resultado = "";
 
                         while(cursor.moveToNext()){
+                            String dadoRetornado = "";
+                            int n;
+                            for ( n=0; n< cursor.getColumnCount(); n++) {
+                                dadoRetornado +=
+                                        cursor.getColumnName(n) + "  " +
+                                                cursor.getString(n) + "  ";
+                            }
 
-                            String dadoRetornado =
-                                    //cursor.getString(cursor.getColumnCount(1));
-
-                                    cursor.getColumnName(0) + "  " +
-                                    cursor.getString(0) + "  " +
-                                    cursor.getColumnName(1) + "  " +
-                                    cursor.getString(1) + "  " +
-                                    cursor.getColumnName(2) + "  " +
-                                    cursor.getString(2)
-                                    ;
-                            testeText.setText(dadoRetornado);
+                            resultado += dadoRetornado + "\n";
                             Toast.makeText(getApplicationContext(), "Comando enviado com sucesso!", Toast.LENGTH_SHORT).show();
-                            //Toast.makeText(getApplicationContext(),text , Toast.LENGTH_LONG).show();
-                            //testeText.setText(cursor.toString());
 
                             bancoDados.close();
                         }
+
+                        testeText.setText(resultado);
                         //bancoDados.execSQL(querytext);
                     } catch (Exception e) {
                         e.printStackTrace();
                         //Log.e("Erro ao Criar Tabela",e.toString());
-                        Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Erro de Sintaxe! Verifique se a tabela já foi criada ou use a opção Colar Exemplo", Toast.LENGTH_LONG).show();
                     }
                 }
             }
