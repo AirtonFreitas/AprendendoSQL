@@ -1,4 +1,4 @@
-package com.example.aprendendosql;
+package com.airtonsiq.aprendendosql;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,9 +11,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class deleteActivity extends AppCompatActivity {
+public class updateActivity extends AppCompatActivity {
 
-    private Button backButotn, nextButton, botao;
+    private Button backButotn, nextButton;
+    private Button botao;
     private EditText query;
     private ImageView colar;
 
@@ -21,7 +22,8 @@ public class deleteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delete);
+        setContentView(R.layout.activity_update);
+
         backButotn = findViewById(R.id.buttonIDback);
         nextButton = findViewById(R.id.buttonIDnext);
         query = findViewById(R.id.queryID);
@@ -31,7 +33,7 @@ public class deleteActivity extends AppCompatActivity {
         colar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                query.setText("DELETE FROM CLIENTE WHERE CODIGO = 2");
+                query.setText("UPDATE CLIENTE SET NOME = \"JOAO CARLOS\" WHERE CODIGO = 2");
             }
         });
         botao.setOnClickListener(new View.OnClickListener() {
@@ -44,14 +46,12 @@ public class deleteActivity extends AppCompatActivity {
                     try{
                         SQLiteDatabase bancoDados = openOrCreateDatabase( "NovoBanco",MODE_PRIVATE, null);
                         bancoDados.execSQL(querytext);
-                        Toast.makeText(getApplicationContext(), "Comando enviado com sucesso!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Alteração enviada com sucesso!", Toast.LENGTH_LONG).show();
                         bancoDados.close();
                     }catch(Exception e){
-                        e.printStackTrace();
-                        //Log.e("Erro ao Criar Tabela",e.toString());
+                        //e.printStackTrace();
                         //Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), "Erro de Sintaxe!! Revise, ou use a opção Colar Exemplo", Toast.LENGTH_LONG).show();
-
+                        Toast.makeText(getApplicationContext(), "Erro de Sintaxe! Verifique se a tabela já foi criada ou use a opção Colar Exemplo", Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -59,15 +59,16 @@ public class deleteActivity extends AppCompatActivity {
         backButotn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(deleteActivity.this, alterActivity.class);
+                Intent intent = new Intent(updateActivity.this, selectActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(deleteActivity.this, dropActivity.class);
+                Intent intent = new Intent(updateActivity.this, alterActivity.class);
                 startActivity(intent);
             }
         });

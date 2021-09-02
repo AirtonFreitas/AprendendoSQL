@@ -1,4 +1,4 @@
-package com.example.aprendendosql;
+package com.airtonsiq.aprendendosql;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,8 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.example.aprendendosql.R.*;
-
 public class selectActivity extends AppCompatActivity {
 
     private Button backButotn, nextButton, botao;
@@ -26,12 +24,12 @@ public class selectActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(layout.activity_select);
-        backButotn = findViewById(id.buttonIDback);
-        nextButton = findViewById(id.buttonIDnext);
-        query = findViewById(id.queryID);
-        botao = findViewById(id.button);
-        testeText = findViewById(id.testTextID);
+        setContentView(R.layout.activity_select);
+        backButotn = findViewById(R.id.buttonIDback);
+        nextButton = findViewById(R.id.buttonIDnext);
+        query = findViewById(R.id.queryID);
+        botao = findViewById(R.id.button);
+        testeText = findViewById(R.id.testTextID);
         colar = findViewById(R.id.imageView6);
 
         colar.setOnClickListener(new View.OnClickListener() {

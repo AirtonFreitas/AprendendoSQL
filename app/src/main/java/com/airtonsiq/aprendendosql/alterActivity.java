@@ -1,4 +1,4 @@
-package com.example.aprendendosql;
+package com.airtonsiq.aprendendosql;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,47 +11,48 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class updateActivity extends AppCompatActivity {
+public class alterActivity extends AppCompatActivity {
 
     private Button backButotn, nextButton;
-    private Button botao;
-    private EditText query;
-    private ImageView colar;
-
+    private Button btnAdicionando;
+    private EditText queryAdicionando;
+    private ImageView colarExemploAdicionando;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update);
+        setContentView(R.layout.activity_alter);
 
         backButotn = findViewById(R.id.buttonIDback);
         nextButton = findViewById(R.id.buttonIDnext);
-        query = findViewById(R.id.queryID);
-        botao = findViewById(R.id.btn);
-        colar = findViewById(R.id.imageView6);
+        btnAdicionando = findViewById(R.id.btn_adiciona);
 
-        colar.setOnClickListener(new View.OnClickListener() {
+        queryAdicionando = findViewById(R.id.queryIDadicionando);
+        colarExemploAdicionando = findViewById(R.id.imageView8);
+
+                colarExemploAdicionando.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                query.setText("UPDATE CLIENTE SET NOME = \"JOAO CARLOS\" WHERE CODIGO = 2");
+                queryAdicionando.setText("ALTER TABLE CLIENTE ADD TELEFONE INT");
             }
         });
-        botao.setOnClickListener(new View.OnClickListener() {
+
+        btnAdicionando.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(query.getText().toString().equals("")){
-                    Toast.makeText(getApplicationContext(), "Digite a query, por favor.", Toast.LENGTH_LONG).show();
+                if(queryAdicionando.getText().toString().equals("")){
+                    Toast.makeText(getApplicationContext(), "Digite a query acima, por favor.", Toast.LENGTH_LONG).show();
                 }else{
-                    String querytext = query.getText().toString();
+                    String querytext = queryAdicionando.getText().toString();
                     try{
                         SQLiteDatabase bancoDados = openOrCreateDatabase( "NovoBanco",MODE_PRIVATE, null);
                         bancoDados.execSQL(querytext);
-                        Toast.makeText(getApplicationContext(), "Alteração enviada com sucesso!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Alteração enviada com sucesso!", Toast.LENGTH_LONG).show();
                         bancoDados.close();
                     }catch(Exception e){
                         //e.printStackTrace();
                         //Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), "Erro de Sintaxe! Verifique se a tabela já foi criada ou use a opção Colar Exemplo", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Erro de Sintaxe!! Revise, ou use a opção Colar Exemplo", Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -59,7 +60,7 @@ public class updateActivity extends AppCompatActivity {
         backButotn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(updateActivity.this, selectActivity.class);
+                Intent intent = new Intent(alterActivity.this, updateActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -68,7 +69,7 @@ public class updateActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(updateActivity.this, alterActivity.class);
+                Intent intent = new Intent(alterActivity.this, deleteActivity.class);
                 startActivity(intent);
             }
         });

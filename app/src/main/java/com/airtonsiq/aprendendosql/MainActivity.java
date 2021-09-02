@@ -1,4 +1,4 @@
-package com.example.aprendendosql;
+package com.airtonsiq.aprendendosql;
 
 import androidx.appcompat.app.AppCompatActivity;
 
