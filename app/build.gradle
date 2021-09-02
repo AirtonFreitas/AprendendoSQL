@@ -4,10 +4,10 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
     defaultConfig {
-        applicationId "com.example.aprendendosql"
+        applicationId 'com.airtonsiq.aprendendosql'
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 1
+        versionCode 4
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
