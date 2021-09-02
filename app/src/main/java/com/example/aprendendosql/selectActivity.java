@@ -66,17 +66,13 @@ public class selectActivity extends AppCompatActivity {
                             }
 
                             resultado += dadoRetornado + "\n";
-                            Toast.makeText(getApplicationContext(), "Comando enviado com sucesso!", Toast.LENGTH_SHORT).show();
 
-                            bancoDados.close();
                         }
-
+                        bancoDados.close();
+                        Toast.makeText(getApplicationContext(), "Comando enviado com sucesso!", Toast.LENGTH_SHORT).show();
                         testeText.setText(resultado);
-                        //bancoDados.execSQL(querytext);
                     } catch (Exception e) {
                         e.printStackTrace();
-                        //Log.e("Erro ao Criar Tabela",e.toString());
-                        //Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                         Toast.makeText(getApplicationContext(), "Erro de Sintaxe! Verifique se a tabela já foi criada ou use a opção Colar Exemplo", Toast.LENGTH_LONG).show();
                     }
                 }
