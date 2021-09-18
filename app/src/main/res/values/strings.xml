@@ -36,8 +36,8 @@
        \nEm nosso caso usaremos o <b>SQLite</b>, mas devemos lembrar que existem outros SGDB que também fazem a mesma função de manipular dados armazenados.
         Como dito, o nosso será o <b>SQLite</b>.
     </string>
-    <string name="nomeBotao">next</string>
-    <string name="nomeBotaoVoltar">back</string>
+    <string name="nomeBotao">Próximo</string>
+    <string name="nomeBotaoVoltar">Anterior</string>
     <string name="sql">A Linguagem SQL pode ser dividida em <b>DML</b> (Data Manipulation Language) e <b>DDL</b> (Data Definition Language).
     \nOnde DML é voltada para Manipulação dos Dados e DDL voltada para Definição dos Dados.
     </string>
