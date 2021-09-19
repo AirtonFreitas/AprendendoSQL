@@ -33,7 +33,7 @@ public class updateActivity extends AppCompatActivity {
         colar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                query.setText("UPDATE CLIENTE SET NOME = \"JOAO CARLOS\" WHERE CODIGO = 2");
+                query.setText("UPDATE CLIENTE SET NOME = \"JOAO CARLOS\" WHERE CODIGO = 2;");
             }
         });
         botao.setOnClickListener(new View.OnClickListener() {

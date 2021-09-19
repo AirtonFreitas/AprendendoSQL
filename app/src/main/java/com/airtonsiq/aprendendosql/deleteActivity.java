@@ -31,7 +31,7 @@ public class deleteActivity extends AppCompatActivity {
         colar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                query.setText("DELETE FROM CLIENTE WHERE CODIGO = 2");
+                query.setText("DELETE FROM CLIENTE WHERE CODIGO = 2;");
             }
         });
         botao.setOnClickListener(new View.OnClickListener() {

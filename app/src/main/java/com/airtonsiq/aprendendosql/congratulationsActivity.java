@@ -124,7 +124,7 @@ public class congratulationsActivity extends AppCompatActivity {
     private void gravarPDF() {
         //pega o nome digitado
         String nomeStr = nome.getText().toString();
-        nomeCert.setText(nomeStr);
+        nomeCert.setText(nomeStr+", ");
 
         PdfDocument documentoPDF = new PdfDocument();
         PdfDocument.PageInfo detalhesPagina =

@@ -89,7 +89,8 @@
         <EditText
             android:id="@+id/queryID"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/editTextAltura"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:ems="10"
             android:hint="digite a query aqui.."
@@ -101,13 +102,17 @@
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_marginTop="44dp"
+            android:layout_width="@dimen/img_colar"
+            android:layout_height="@dimen/img_colar"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="21dp"
+            android:contentDescription="Colar exemplo da Query"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/queryID"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/queryID"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="@+id/queryID"
             app:srcCompat="@drawable/copy_paste" />
 
         <TextView
@@ -123,11 +128,12 @@
 
         <Button
             android:id="@+id/btn"
-            android:layout_width="120dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/btn_largura_query"
+            android:layout_height="@dimen/btn_altura"
             android:layout_marginTop="32dp"
             android:background="@drawable/rouded_corner_cinza"
             android:text="enviar query"
+            android:textColor="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/queryID" />
@@ -135,23 +141,25 @@
 
         <Button
             android:id="@+id/buttonIDnext"
-            android:layout_width="80dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/btn_largura"
+            android:layout_height="@dimen/btn_altura"
             android:layout_marginEnd="@dimen/esp_btnlateral"
             android:layout_marginBottom="@dimen/esp_btnInferior"
             android:background="@drawable/rouded_corner"
             android:text="@string/nomeBotao"
+            android:textColor="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/buttonIDback"
-            android:layout_width="80dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/btn_largura"
+            android:layout_height="@dimen/btn_altura"
             android:layout_marginStart="@dimen/esp_btnlateral"
             android:layout_marginBottom="@dimen/esp_btnInferior"
             android:background="@drawable/rouded_corner"
             android:text="@string/nomeBotaoVoltar"
+            android:textColor="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

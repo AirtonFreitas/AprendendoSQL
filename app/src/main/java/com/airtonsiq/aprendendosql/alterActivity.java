@@ -33,7 +33,7 @@ public class alterActivity extends AppCompatActivity {
                 colarExemploAdicionando.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                queryAdicionando.setText("ALTER TABLE CLIENTE ADD TELEFONE INT");
+                queryAdicionando.setText("ALTER TABLE CLIENTE ADD TELEFONE INT;");
             }
         });
 

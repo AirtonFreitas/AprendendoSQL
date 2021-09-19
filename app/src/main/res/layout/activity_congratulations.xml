@@ -37,7 +37,7 @@
         <EditText
             android:id="@+id/nomeID"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/editTextAltura"
             android:layout_marginTop="30dp"
             android:ems="10"
             android:hint="Nome Completo..."
@@ -49,11 +49,12 @@
 
         <Button
             android:id="@+id/buttonID"
-            android:layout_width="80dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/btn_largura"
+            android:layout_height="@dimen/btn_altura"
             android:layout_marginTop="32dp"
             android:background="@drawable/rouded_corner"
             android:text="Gerar"
+            android:textColor="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nomeID" />
@@ -75,7 +76,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/contragulations"
-            android:textColor="@color/colorAccent"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -99,18 +99,20 @@
             android:layout_marginStart="75dp"
             android:layout_marginTop="85dp"
             android:paddingStart="5dp"
+            android:textColor="#000000"
             android:textSize="8sp"
             app:layout_constraintStart_toStartOf="@+id/imageView9"
             app:layout_constraintTop_toTopOf="@+id/imageView9" />
 
         <Button
             android:id="@+id/buttonIDback"
-            android:layout_width="80dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/btn_largura"
+            android:layout_height="@dimen/btn_altura"
             android:layout_marginStart="@dimen/esp_btnlateral"
             android:layout_marginBottom="@dimen/esp_btnInferior"
             android:background="@drawable/rouded_corner"
             android:text="@string/nomeBotaoVoltar"
+            android:textColor="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -130,8 +132,10 @@
 
         <ImageView
             android:id="@+id/shareId"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/img_colar"
+            android:layout_height="@dimen/img_colar"
+            android:contentDescription="Compartilhar Certificado"
+            android:padding="10dp"
             app:layout_constraintBottom_toTopOf="@+id/textView35"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView9"

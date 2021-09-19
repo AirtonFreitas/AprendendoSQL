@@ -34,7 +34,7 @@ public class dropActivity extends AppCompatActivity {
         colar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                query.setText("DROP TABLE CLIENTE");
+                query.setText("DROP TABLE CLIENTE;");
             }
         });
 

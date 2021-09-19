@@ -43,7 +43,7 @@ public class createActivity extends AppCompatActivity {
         colar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                query.setText("CREATE TABLE CLIENTE (CODIGO INT, NOME CHAR, CPF CHAR)");
+                query.setText("CREATE TABLE CLIENTE (CODIGO INT, NOME CHAR, CPF CHAR);");
             }
         });
 

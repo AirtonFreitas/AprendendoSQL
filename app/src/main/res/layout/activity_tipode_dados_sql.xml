@@ -40,13 +40,14 @@
 
         <Button
             android:id="@+id/buttonIDback"
-            android:layout_width="80dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/btn_largura"
+            android:layout_height="@dimen/btn_altura"
             android:layout_marginStart="@dimen/esp_btnlateral"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="@dimen/esp_btnInferior"
             android:background="@drawable/rouded_corner"
             android:text="@string/nomeBotaoVoltar"
+            android:textColor="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />

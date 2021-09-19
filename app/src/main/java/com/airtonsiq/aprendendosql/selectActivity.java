@@ -35,7 +35,7 @@ public class selectActivity extends AppCompatActivity {
         colar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                query.setText("SELECT * FROM CLIENTE");
+                query.setText("SELECT * FROM CLIENTE;");
             }
         });
 

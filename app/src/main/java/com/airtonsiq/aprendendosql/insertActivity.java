@@ -40,7 +40,7 @@ public class insertActivity extends AppCompatActivity {
                         "(2, \"JOAO C\",\"664.844.646-24\")," +
                         "(3, \"MARIA S.\",\"194.747.966-34\")," +
                         "(4, \"DANIEL\",\"154.854.654-21\")," +
-                        "(5, \"PAULO C.\",\"664.844.981-24\")");
+                        "(5, \"PAULO C.\",\"664.844.981-24\");");
             }
         });
 

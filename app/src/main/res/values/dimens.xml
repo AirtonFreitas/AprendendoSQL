@@ -7,4 +7,9 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="esp_btnlateral">16dp</dimen>
     <dimen name="esp_btnInferior">32dp</dimen>
+    <dimen name="btn_largura">80dp</dimen>
+    <dimen name="btn_altura">48dp</dimen>
+    <dimen name="editTextAltura">48dp</dimen>
+    <dimen name="btn_largura_query">120dp</dimen>
+    <dimen name="img_colar">48dp</dimen>
 </resources>
