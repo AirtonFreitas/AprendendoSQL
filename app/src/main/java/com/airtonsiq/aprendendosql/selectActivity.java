@@ -62,9 +62,7 @@ public class selectActivity extends AppCompatActivity {
                                         cursor.getColumnName(n) + "  " +
                                                 cursor.getString(n) + "  ";
                             }
-
                             resultado += dadoRetornado + "\n";
-
                         }
                         bancoDados.close();
                         Toast.makeText(getApplicationContext(), "Comando enviado com sucesso!", Toast.LENGTH_SHORT).show();
