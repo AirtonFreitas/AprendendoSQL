@@ -1,7 +1,6 @@
 package com.airtonsiq.aprendendosql;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -38,7 +37,6 @@ public class dropActivity extends AppCompatActivity {
             }
         });
 
-
         botao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +58,6 @@ public class dropActivity extends AppCompatActivity {
                                 imagemTabela.setImageResource(R.drawable.tabela_drop2);
                             }
                         },2000 );
-
 
                     }catch(Exception e){
                         e.printStackTrace();
@@ -90,5 +87,4 @@ public class dropActivity extends AppCompatActivity {
             }
         });
     }
-
 }
