@@ -6,6 +6,8 @@ No Final do app, temos um certificado que é gerado em PDF e gravado no disposit
 
 Tenho a intenção de progredir com o app, me aprofundando em outras querys que o SQLite me possibilitar.
 
+**Link do Google Play**
+https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendosql
 
 ![Screenshot_7](https://user-images.githubusercontent.com/47503233/145662184-114112bb-f500-4c13-a173-921cb41333ea.png)
 ![Screenshot_8](https://user-images.githubusercontent.com/47503233/145662185-b361678c-14f5-4986-88a1-39cc62d96f1a.png)
