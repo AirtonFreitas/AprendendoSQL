@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/toolbarInicio"
+        android:orderInCategory="100"
+        android:title="✏️ Início"
+        app:showAsAction="never"
+        />
+        <item
+        android:id="@+id/toolbarCertificado"
+        android:orderInCategory="100"
+        android:title="📃 Certificado"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/toolbarDonate"
+        android:orderInCategory="100"
+        android:title="💲 Apoie o desenvolvedor"
+        app:showAsAction="never"
+        />
+</menu>

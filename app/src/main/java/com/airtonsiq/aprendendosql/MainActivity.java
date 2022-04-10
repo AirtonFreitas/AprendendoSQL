@@ -1,12 +1,16 @@
 package com.airtonsiq.aprendendosql;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.appcompat.widget.Toolbar;
 
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button nextButton;
     private TextView insert, select,update, delete, create, alter, drop;
+    private Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +34,10 @@ public class MainActivity extends AppCompatActivity {
         delete = findViewById(R.id.deleteID);
         create = findViewById(R.id.createID);
         alter = findViewById(R.id.alterID);
-        drop = findViewById(R.id.dropID);
+        toolbar = findViewById(R.id.toolbar);
 
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
 
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,5 +106,47 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_pages, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.toolbarInicio:
+                homePage();
+                break;
+            case R.id.toolbarCertificado:
+                Congrats();
+                break;
+            case R.id.toolbarDonate:
+                Donate();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return false;
+    }
+
+    public void homePage() {
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void Congrats() {
+        Intent intent = new Intent(MainActivity.this, congratulationsActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void Donate() {
+        Intent intent = new Intent(MainActivity.this, activity_donate.class);
+        startActivity(intent);
+        finish();
     }
 }
