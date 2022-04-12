@@ -1,11 +1,16 @@
 package com.airtonsiq.aprendendosql;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +24,7 @@ public class selectActivity extends AppCompatActivity {
     private EditText query;
     private TextView testeText;
     private ImageView colar;
+    private Toolbar toolbar;
 
 
     @Override
@@ -31,7 +37,9 @@ public class selectActivity extends AppCompatActivity {
         botao = findViewById(R.id.button);
         testeText = findViewById(R.id.testTextID);
         colar = findViewById(R.id.imageView6);
-
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
         colar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,14 +58,14 @@ public class selectActivity extends AppCompatActivity {
                     try {
                         SQLiteDatabase bancoDados = openOrCreateDatabase("NovoBanco", MODE_PRIVATE, null);
 
-                        Cursor cursor = bancoDados.rawQuery(querytext,null);
+                        Cursor cursor = bancoDados.rawQuery(querytext, null);
 
                         String resultado = "";
 
-                        while(cursor.moveToNext()){
+                        while (cursor.moveToNext()) {
                             String dadoRetornado = "";
                             int n;
-                            for ( n=0; n< cursor.getColumnCount(); n++) {
+                            for (n = 0; n < cursor.getColumnCount(); n++) {
                                 dadoRetornado +=
                                         cursor.getColumnName(n) + "  " +
                                                 cursor.getString(n) + "  ";
@@ -89,6 +97,39 @@ public class selectActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_pages, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.toolbarInicio:
+                homePage();
+                break;
+            case R.id.toolbarDonate:
+                Donate();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return false;
+    }
+
+    public void homePage() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+    public void Donate() {
+        Intent intent = new Intent(this, activity_donate.class);
+        startActivity(intent);
     }
 
 }

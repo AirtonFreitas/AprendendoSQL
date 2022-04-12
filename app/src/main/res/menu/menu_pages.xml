@@ -7,12 +7,6 @@
         android:title="✏️ Início"
         app:showAsAction="never"
         />
-        <item
-        android:id="@+id/toolbarCertificado"
-        android:orderInCategory="100"
-        android:title="📃 Certificado"
-        app:showAsAction="never"
-        />
     <item
         android:id="@+id/toolbarDonate"
         android:orderInCategory="100"

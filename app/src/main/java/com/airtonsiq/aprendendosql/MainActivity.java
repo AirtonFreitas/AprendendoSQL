@@ -18,7 +18,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private Button nextButton;
-    private TextView insert, select,update, delete, create, alter, drop;
+    private TextView insert, select, update, delete, create, alter, drop;
     private Toolbar toolbar;
 
 
@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         create = findViewById(R.id.createID);
         alter = findViewById(R.id.alterID);
         toolbar = findViewById(R.id.toolbar);
-
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
@@ -87,16 +86,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-        drop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, dropActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_pages, menu);
@@ -119,9 +109,6 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.toolbarInicio:
                 homePage();
-                break;
-            case R.id.toolbarCertificado:
-                Congrats();
                 break;
             case R.id.toolbarDonate:
                 Donate();
@@ -138,15 +125,8 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    public void Congrats() {
-        Intent intent = new Intent(MainActivity.this, congratulationsActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
     public void Donate() {
         Intent intent = new Intent(MainActivity.this, activity_donate.class);
         startActivity(intent);
-        finish();
     }
 }

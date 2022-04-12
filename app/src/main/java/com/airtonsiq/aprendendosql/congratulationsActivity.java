@@ -1,6 +1,8 @@
 package com.airtonsiq.aprendendosql;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Intent;
@@ -14,6 +16,9 @@ import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,6 +37,8 @@ public class congratulationsActivity extends AppCompatActivity {
     private EditText nome;
     private TextView nomeCert, compartilhar;
     private ImageView imagemCertificado, shareImage;
+    private Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +53,9 @@ public class congratulationsActivity extends AppCompatActivity {
         backButton = findViewById(R.id.buttonIDback);
         imagemCertificado = findViewById(R.id.imageView9);
         compartilhar = findViewById(R.id.textView35);
-
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
         imagemCertificado.setVisibility(View.INVISIBLE);
         shareImage.setVisibility(View.INVISIBLE);
         compartilhar.setVisibility(View.INVISIBLE);
@@ -88,6 +97,39 @@ public class congratulationsActivity extends AppCompatActivity {
         });
 
 }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_pages, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.toolbarInicio:
+                homePage();
+                break;
+            case R.id.toolbarDonate:
+                Donate();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return false;
+    }
+
+    public void homePage() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+    public void Donate() {
+        Intent intent = new Intent(this, activity_donate.class);
+        startActivity(intent);
+    }
 
     private void shareCert() {
         if(nomeCert.getText().toString().equals("")){

@@ -1,10 +1,15 @@
 package com.airtonsiq.aprendendosql;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +20,7 @@ public class alterActivity extends AppCompatActivity {
 
     private Button backButotn, nextButton;
     private Button btnAdicionando;
+    private Toolbar toolbar;
     private EditText queryAdicionando;
     private ImageView colarExemploAdicionando;
 
@@ -26,11 +32,13 @@ public class alterActivity extends AppCompatActivity {
         backButotn = findViewById(R.id.buttonIDback);
         nextButton = findViewById(R.id.buttonIDnext);
         btnAdicionando = findViewById(R.id.btn_adiciona);
-
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
         queryAdicionando = findViewById(R.id.queryIDadicionando);
         colarExemploAdicionando = findViewById(R.id.imageView8);
 
-                colarExemploAdicionando.setOnClickListener(new View.OnClickListener() {
+        colarExemploAdicionando.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 queryAdicionando.setText("ALTER TABLE CLIENTE ADD TELEFONE INT;");
@@ -40,16 +48,16 @@ public class alterActivity extends AppCompatActivity {
         btnAdicionando.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(queryAdicionando.getText().toString().equals("")){
+                if (queryAdicionando.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(), "Digite a query acima, por favor.", Toast.LENGTH_LONG).show();
-                }else{
+                } else {
                     String querytext = queryAdicionando.getText().toString();
-                    try{
-                        SQLiteDatabase bancoDados = openOrCreateDatabase( "NovoBanco",MODE_PRIVATE, null);
+                    try {
+                        SQLiteDatabase bancoDados = openOrCreateDatabase("NovoBanco", MODE_PRIVATE, null);
                         bancoDados.execSQL(querytext);
-                            Toast.makeText(getApplicationContext(), "Alteração enviada com sucesso!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Alteração enviada com sucesso!", Toast.LENGTH_LONG).show();
                         bancoDados.close();
-                    }catch(Exception e){
+                    } catch (Exception e) {
                         //e.printStackTrace();
                         //Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                         Toast.makeText(getApplicationContext(), "Erro de Sintaxe!! Revise, ou use a opção Colar Exemplo", Toast.LENGTH_LONG).show();
@@ -74,4 +82,38 @@ public class alterActivity extends AppCompatActivity {
             }
         });
     }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_pages, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.toolbarInicio:
+                homePage();
+                break;
+            case R.id.toolbarDonate:
+                Donate();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return false;
+    }
+
+    public void homePage() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+    public void Donate() {
+        Intent intent = new Intent(this, activity_donate.class);
+        startActivity(intent);
+    }
 }
+

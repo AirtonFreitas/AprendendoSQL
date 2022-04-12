@@ -34,10 +34,10 @@ public class activity_donate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donate);
         pix = findViewById(R.id.imageCopyPix);
-        toolbar = findViewById(R.id.toolbar);
         btnRate = findViewById(R.id.btn_rate);
         btnBack = findViewById(R.id.btnDonateBackID);
         linkLinkedin = findViewById(R.id.linkedInLink);
+        toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         pix.setOnClickListener(new View.OnClickListener() {
@@ -45,7 +45,7 @@ public class activity_donate extends AppCompatActivity {
             public void onClick(View view) {
                 ClipboardManager clipboard = (ClipboardManager)
                         getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("simple text", "6c1b2b17-5f39-494d-a683-c88e3792a1ff");
+                ClipData clip = ClipData.newPlainText("simple text", "94548416-5504-4ce4-98a4-4e2fc79d8346");
                 clipboard.setPrimaryClip(clip);
 
                 Toast.makeText(activity_donate.this, "Chave Pix copiada!", Toast.LENGTH_LONG).show();
@@ -86,9 +86,6 @@ public class activity_donate extends AppCompatActivity {
             case R.id.toolbarInicio:
                 homePage();
                 break;
-            case R.id.toolbarCertificado:
-                Congrats();
-                break;
             case R.id.toolbarDonate:
                 Donate();
                 break;
@@ -104,15 +101,9 @@ public class activity_donate extends AppCompatActivity {
         finish();
     }
 
-    public void Congrats() {
-        Intent intent = new Intent(this, congratulationsActivity.class);
-        startActivity(intent);
-        finish();
-    }
 
     public void Donate() {
         Intent intent = new Intent(this, activity_donate.class);
         startActivity(intent);
-        finish();
     }
 }

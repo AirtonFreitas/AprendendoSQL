@@ -1,10 +1,15 @@
 package com.airtonsiq.aprendendosql;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +23,7 @@ public class createActivity extends AppCompatActivity {
     private EditText query;
     private ImageView colar;
     private TextView cliqueID;
+    private Toolbar toolbar;
 
 
     @Override
@@ -31,13 +37,16 @@ public class createActivity extends AppCompatActivity {
         botao = findViewById(R.id.btn);
         colar = findViewById(R.id.imageView6);
         cliqueID = findViewById(R.id.cliqueID);
-
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
         cliqueID.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(createActivity.this, tipodeDadosSQL.class);
                 startActivity(intent);
-                finish();}
+                finish();
+            }
         });
 
         colar.setOnClickListener(new View.OnClickListener() {
@@ -50,16 +59,16 @@ public class createActivity extends AppCompatActivity {
         botao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(query.getText().toString().equals("")){
+                if (query.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(), "Digite a query, por favor.", Toast.LENGTH_LONG).show();
-                }else{
+                } else {
                     String querytext = query.getText().toString();
-                    try{
-                        SQLiteDatabase bancoDados = openOrCreateDatabase( "NovoBanco",MODE_PRIVATE, null);
+                    try {
+                        SQLiteDatabase bancoDados = openOrCreateDatabase("NovoBanco", MODE_PRIVATE, null);
                         bancoDados.execSQL(querytext);
                         Toast.makeText(getApplicationContext(), "Tabela criada com sucesso!", Toast.LENGTH_LONG).show();
                         bancoDados.close();
-                    }catch(Exception e){
+                    } catch (Exception e) {
                         //e.printStackTrace();
                         //Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                         Toast.makeText(getApplicationContext(), "Erro de Sintaxe! Verifique se a tabela já foi criada antes ou use o botão Colar Exemplo.", Toast.LENGTH_LONG).show();
@@ -82,5 +91,38 @@ public class createActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_pages, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.toolbarInicio:
+                homePage();
+                break;
+            case R.id.toolbarDonate:
+                Donate();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return false;
+    }
+
+    public void homePage() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+    public void Donate() {
+        Intent intent = new Intent(this, activity_donate.class);
+        startActivity(intent);
     }
 }

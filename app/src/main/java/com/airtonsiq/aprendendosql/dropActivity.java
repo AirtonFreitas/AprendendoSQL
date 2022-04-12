@@ -1,10 +1,16 @@
 package com.airtonsiq.aprendendosql;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +23,8 @@ public class dropActivity extends AppCompatActivity {
     private EditText query;
     private ImageView imagemTabela;
     private ImageView colar;
+    private Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +37,9 @@ public class dropActivity extends AppCompatActivity {
         botao = findViewById(R.id.btn);
         imagemTabela = findViewById(R.id.imageView1);
         colar = findViewById(R.id.imageView6);
-
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
         colar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,12 +50,12 @@ public class dropActivity extends AppCompatActivity {
         botao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(query.getText().toString().equals("")){
+                if (query.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(), "Digite a query, por favor.", Toast.LENGTH_LONG).show();
-                }else{
+                } else {
                     String querytext = query.getText().toString();
-                    try{
-                        SQLiteDatabase bancoDados = openOrCreateDatabase( "NovoBanco",MODE_PRIVATE, null);
+                    try {
+                        SQLiteDatabase bancoDados = openOrCreateDatabase("NovoBanco", MODE_PRIVATE, null);
                         bancoDados.execSQL(querytext);
                         Toast.makeText(getApplicationContext(), "Tabela apagada com sucesso!", Toast.LENGTH_LONG).show();
                         bancoDados.close();
@@ -57,9 +67,9 @@ public class dropActivity extends AppCompatActivity {
                             public void run() {
                                 imagemTabela.setImageResource(R.drawable.tabela_drop2);
                             }
-                        },2000 );
+                        }, 2000);
 
-                    }catch(Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
                         //Log.e("Erro ao Criar Tabela",e.toString());
                         //Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
@@ -87,4 +97,38 @@ public class dropActivity extends AppCompatActivity {
             }
         });
     }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_pages, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.toolbarInicio:
+                homePage();
+                break;
+            case R.id.toolbarDonate:
+                Donate();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return false;
+    }
+
+    public void homePage() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+    public void Donate() {
+        Intent intent = new Intent(this, activity_donate.class);
+        startActivity(intent);
+    }
+
 }
