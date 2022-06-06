@@ -17,6 +17,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 
 public class insertActivity extends AppCompatActivity {
 
@@ -24,6 +30,7 @@ public class insertActivity extends AppCompatActivity {
     private EditText query;
     private ImageView colar;
     private Toolbar toolbar;
+    private AdView mAdView;
 
 
 
@@ -38,8 +45,21 @@ public class insertActivity extends AppCompatActivity {
         botao = findViewById(R.id.btn);
         colar = findViewById(R.id.imageView6);
         toolbar = findViewById(R.id.toolbar);
+        mAdView = findViewById(R.id.adView);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
+
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+
         colar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

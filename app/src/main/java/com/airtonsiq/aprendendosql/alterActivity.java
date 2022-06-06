@@ -16,6 +16,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 public class alterActivity extends AppCompatActivity {
 
     private Button backButotn, nextButton;
@@ -23,6 +29,7 @@ public class alterActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private EditText queryAdicionando;
     private ImageView colarExemploAdicionando;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +40,19 @@ public class alterActivity extends AppCompatActivity {
         nextButton = findViewById(R.id.buttonIDnext);
         btnAdicionando = findViewById(R.id.btn_adiciona);
         toolbar = findViewById(R.id.toolbar);
+        mAdView = findViewById(R.id.adView);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         queryAdicionando = findViewById(R.id.queryIDadicionando);
         colarExemploAdicionando = findViewById(R.id.imageView8);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         colarExemploAdicionando.setOnClickListener(new View.OnClickListener() {
             @Override

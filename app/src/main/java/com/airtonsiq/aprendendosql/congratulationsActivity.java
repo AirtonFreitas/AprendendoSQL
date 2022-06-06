@@ -27,6 +27,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import static android.os.Environment.*;
 
@@ -38,6 +43,7 @@ public class congratulationsActivity extends AppCompatActivity {
     private TextView nomeCert, compartilhar;
     private ImageView imagemCertificado, shareImage;
     private Toolbar toolbar;
+    private AdView mAdView;
 
 
     @Override
@@ -54,11 +60,20 @@ public class congratulationsActivity extends AppCompatActivity {
         imagemCertificado = findViewById(R.id.imageView9);
         compartilhar = findViewById(R.id.textView35);
         toolbar = findViewById(R.id.toolbar);
+        mAdView = findViewById(R.id.adView);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         imagemCertificado.setVisibility(View.INVISIBLE);
         shareImage.setVisibility(View.INVISIBLE);
         compartilhar.setVisibility(View.INVISIBLE);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         botaoCert.setOnClickListener(new View.OnClickListener() {
             @Override

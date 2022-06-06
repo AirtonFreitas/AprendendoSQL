@@ -17,6 +17,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 public class createActivity extends AppCompatActivity {
 
     private Button backButotn, nextButton, botao;
@@ -24,6 +30,7 @@ public class createActivity extends AppCompatActivity {
     private ImageView colar;
     private TextView cliqueID;
     private Toolbar toolbar;
+    private AdView mAdView;
 
 
     @Override
@@ -38,8 +45,20 @@ public class createActivity extends AppCompatActivity {
         colar = findViewById(R.id.imageView6);
         cliqueID = findViewById(R.id.cliqueID);
         toolbar = findViewById(R.id.toolbar);
+        mAdView = findViewById(R.id.adView);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
+
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
         cliqueID.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
