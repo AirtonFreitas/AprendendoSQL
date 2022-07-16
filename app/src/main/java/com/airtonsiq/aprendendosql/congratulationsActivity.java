@@ -16,6 +16,7 @@ import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -29,9 +30,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 import static android.os.Environment.*;
 
@@ -44,6 +48,7 @@ public class congratulationsActivity extends AppCompatActivity {
     private ImageView imagemCertificado, shareImage;
     private Toolbar toolbar;
     private AdView mAdView;
+    private InterstitialAd mInterstitialAd;
 
 
     @Override
@@ -89,6 +94,7 @@ public class congratulationsActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Preencha o Nome Completo por favor.",Toast.LENGTH_SHORT).show();
                     }else{
                         criarPasta();
+                        enabledAdsInterstitial();
                     }
 
                 }
@@ -211,4 +217,31 @@ public class congratulationsActivity extends AppCompatActivity {
         shareImage.setVisibility(View.VISIBLE);
         compartilhar.setVisibility(View.VISIBLE);
     }
+    private void enabledAdsInterstitial() {
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {}
+        });
+        AdRequest adRequesti = new AdRequest.Builder().build();
+
+        InterstitialAd.load(this,"ca-app-pub-3721429763641925/6877262672", adRequesti,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        mInterstitialAd = interstitialAd;
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        mInterstitialAd = null;
+                    }
+                });
+        if (mInterstitialAd != null) {
+            mInterstitialAd.show(congratulationsActivity.this);
+        } else {
+            Log.d("TAG", "The interstitial ad wasn't ready yet.");
+        }
+
+    }
+
 }

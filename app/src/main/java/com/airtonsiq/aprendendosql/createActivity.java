@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,9 +20,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 public class createActivity extends AppCompatActivity {
 
@@ -31,6 +35,7 @@ public class createActivity extends AppCompatActivity {
     private TextView cliqueID;
     private Toolbar toolbar;
     private AdView mAdView;
+    private InterstitialAd mInterstitialAd;
 
 
     @Override
@@ -64,7 +69,7 @@ public class createActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(createActivity.this, tipodeDadosSQL.class);
                 startActivity(intent);
-                finish();
+
             }
         });
 
@@ -87,10 +92,10 @@ public class createActivity extends AppCompatActivity {
                         bancoDados.execSQL(querytext);
                         Toast.makeText(getApplicationContext(), "Tabela criada com sucesso!", Toast.LENGTH_LONG).show();
                         bancoDados.close();
+                        enabledAdsInterstitial();
                     } catch (Exception e) {
-                        //e.printStackTrace();
-                        //Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                         Toast.makeText(getApplicationContext(), "Erro de Sintaxe! Verifique se a tabela já foi criada antes ou use o botão Colar Exemplo.", Toast.LENGTH_LONG).show();
+                        enabledAdsInterstitial();
                     }
                 }
             }
@@ -144,4 +149,34 @@ public class createActivity extends AppCompatActivity {
         Intent intent = new Intent(this, activity_donate.class);
         startActivity(intent);
     }
+
+    private void enabledAdsInterstitial() {
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {}
+        });
+        AdRequest adRequesti = new AdRequest.Builder().build();
+
+        InterstitialAd.load(this,"ca-app-pub-3721429763641925/6877262672", adRequesti,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        mInterstitialAd = interstitialAd;
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        mInterstitialAd = null;
+                    }
+                });
+        if (mInterstitialAd != null) {
+            mInterstitialAd.show(createActivity.this);
+        } else {
+            Log.d("TAG", "The interstitial ad wasn't ready yet.");
+        }
+
+    }
+
+
+
 }
