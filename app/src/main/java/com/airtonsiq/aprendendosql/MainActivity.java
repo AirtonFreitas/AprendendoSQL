@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private Button nextButton;
     private TextView insert, select, update, delete, create, alter, drop;
     private Toolbar toolbar;
-    private AdView mAdView;
+    private AdView mAdView, mAdViewID;
     private InterstitialAd mInterstitialAd;
 
 
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         drop = findViewById(R.id.dropID);
         toolbar = findViewById(R.id.toolbar);
         mAdView = findViewById(R.id.adView);
+        mAdViewID = findViewById(R.id.adViewID);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         });
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        mAdViewID.loadAd(adRequest);
 
         insert.setOnClickListener(new View.OnClickListener() {
             @Override

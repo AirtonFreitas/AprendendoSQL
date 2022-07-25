@@ -395,6 +395,5 @@
             app:layout_constraintTop_toBottomOf="@+id/buttonIDnext">
         </com.google.android.gms.ads.AdView>
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

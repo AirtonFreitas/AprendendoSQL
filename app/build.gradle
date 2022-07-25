@@ -7,8 +7,8 @@ android {
         applicationId 'com.airtonsiq.aprendendosql'
         minSdkVersion 19
         targetSdkVersion 31
-        versionCode 12
-        versionName "2.4"
+        versionCode 13
+        versionName "2.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
