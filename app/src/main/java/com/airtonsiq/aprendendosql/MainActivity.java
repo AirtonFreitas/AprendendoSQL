@@ -5,15 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
-import android.os.Build;
+import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView insert, select, update, delete, create, alter, drop;
     private Toolbar toolbar;
     private AdView mAdView, mAdViewID;
+    private ImageView imageFlutter;
     private InterstitialAd mInterstitialAd;
 
 
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         mAdView = findViewById(R.id.adView);
         mAdViewID = findViewById(R.id.adViewID);
+        imageFlutter = findViewById(R.id.imageViewFlutterID);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
@@ -71,6 +73,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        imageFlutter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendoflutter.aprendendo_flutter")));
+            }
+        });
+
         select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

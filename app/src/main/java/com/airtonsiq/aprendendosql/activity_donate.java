@@ -45,7 +45,7 @@ public class activity_donate extends AppCompatActivity {
         btnBack = findViewById(R.id.btnDonateBackID);
         linkLinkedin = findViewById(R.id.linkedInLink);
         toolbar = findViewById(R.id.toolbar);
-        mAdView = findViewById(R.id.adView);
+        mAdView = findViewById(R.id.adViewID);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 

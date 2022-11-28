@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -35,6 +36,7 @@ public class createActivity extends AppCompatActivity {
     private TextView cliqueID;
     private Toolbar toolbar;
     private AdView mAdView;
+    private ImageView imageFlutter;
     private InterstitialAd mInterstitialAd;
 
 
@@ -51,6 +53,7 @@ public class createActivity extends AppCompatActivity {
         cliqueID = findViewById(R.id.cliqueID);
         toolbar = findViewById(R.id.toolbar);
         mAdView = findViewById(R.id.adView);
+        imageFlutter = findViewById(R.id.imageViewFlutterID);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
@@ -80,6 +83,13 @@ public class createActivity extends AppCompatActivity {
             }
         });
 
+        imageFlutter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendoflutter.aprendendo_flutter")));
+            }
+        });
+
         botao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +110,14 @@ public class createActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+
+
+
+
+
+
         backButotn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -176,7 +194,4 @@ public class createActivity extends AppCompatActivity {
         }
 
     }
-
-
-
 }
