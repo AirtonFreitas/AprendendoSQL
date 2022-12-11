@@ -30,23 +30,21 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 
 public class activity_donate extends AppCompatActivity {
 
-    private ImageView pix;
     private Toolbar toolbar;
     private Button btnRate, btnBack;
-    private TextView linkLinkedin;
+    private ImageView imgFlutter;
     private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donate);
-        pix = findViewById(R.id.imageCopyPix);
         btnRate = findViewById(R.id.btn_rate);
         btnBack = findViewById(R.id.btnDonateBackID);
-        linkLinkedin = findViewById(R.id.linkedInLink);
         toolbar = findViewById(R.id.toolbar);
         mAdView = findViewById(R.id.adViewID);
         toolbar.setTitle("");
+        imgFlutter = findViewById(R.id.imageFlutterID);
         setSupportActionBar(toolbar);
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -58,17 +56,17 @@ public class activity_donate extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
 
-        pix.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ClipboardManager clipboard = (ClipboardManager)
-                        getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("simple text", "94548416-5504-4ce4-98a4-4e2fc79d8346");
-                clipboard.setPrimaryClip(clip);
-
-                Toast.makeText(activity_donate.this, "Chave Pix copiada!", Toast.LENGTH_LONG).show();
-            }
-        });
+//        pix.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                ClipboardManager clipboard = (ClipboardManager)
+//                        getSystemService(Context.CLIPBOARD_SERVICE);
+//                ClipData clip = ClipData.newPlainText("simple text", "94548416-5504-4ce4-98a4-4e2fc79d8346");
+//                clipboard.setPrimaryClip(clip);
+//
+//                Toast.makeText(activity_donate.this, "Chave Pix copiada!", Toast.LENGTH_LONG).show();
+//            }
+//        });
         btnRate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,10 +81,10 @@ public class activity_donate extends AppCompatActivity {
                 finish();
             }
         });
-        linkLinkedin.setOnClickListener(new View.OnClickListener() {
+        imgFlutter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://linkedin.com/in/airton-siqueira-85260b174")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendoflutter.aprendendo_flutter")));
 
             }
         });
@@ -104,8 +102,14 @@ public class activity_donate extends AppCompatActivity {
             case R.id.toolbarInicio:
                 homePage();
                 break;
+            case R.id.toolbarFlutter:
+                Flutter();
+                break;
             case R.id.toolbarDonate:
                 Donate();
+                break;
+            case R.id.toolbarRate:
+                Rate();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -123,5 +127,13 @@ public class activity_donate extends AppCompatActivity {
     public void Donate() {
         Intent intent = new Intent(this, activity_donate.class);
         startActivity(intent);
+    }
+
+    public void Flutter() {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendoflutter.aprendendo_flutter")));
+    }
+
+    public void Rate() {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendosql")));
     }
 }

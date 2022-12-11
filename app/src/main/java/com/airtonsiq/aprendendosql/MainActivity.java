@@ -138,11 +138,12 @@ public class MainActivity extends AppCompatActivity {
     private void ativarInterstitial() {
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {}
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
         });
         AdRequest adRequesti = new AdRequest.Builder().build();
 
-        InterstitialAd.load(this,"ca-app-pub-3721429763641925/6877262672", adRequesti,
+        InterstitialAd.load(this, "ca-app-pub-3721429763641925/6877262672", adRequesti,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
@@ -176,8 +177,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.toolbarInicio:
                 homePage();
                 break;
+            case R.id.toolbarFlutter:
+                Flutter();
+                break;
             case R.id.toolbarDonate:
                 Donate();
+                break;
+            case R.id.toolbarRate:
+                Rate();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -186,13 +193,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void homePage() {
-        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }
 
+
     public void Donate() {
-        Intent intent = new Intent(MainActivity.this, activity_donate.class);
+        Intent intent = new Intent(this, activity_donate.class);
         startActivity(intent);
+    }
+
+    public void Flutter() {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendoflutter.aprendendo_flutter")));
+    }
+
+    public void Rate() {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendosql")));
     }
 }

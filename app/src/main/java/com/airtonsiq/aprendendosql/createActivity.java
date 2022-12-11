@@ -1,13 +1,17 @@
 package com.airtonsiq.aprendendosql;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -30,13 +34,9 @@ import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 public class createActivity extends AppCompatActivity {
 
-    private Button backButotn, nextButton, botao;
+    private Button nextButton;
+    private Button botao;
     private EditText query;
-    private ImageView colar;
-    private TextView cliqueID;
-    private Toolbar toolbar;
-    private AdView mAdView;
-    private ImageView imageFlutter;
     private InterstitialAd mInterstitialAd;
 
 
@@ -45,18 +45,25 @@ public class createActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
 
-        backButotn = findViewById(R.id.buttonIDback);
+        Button backButotn = findViewById(R.id.buttonIDback);
         nextButton = findViewById(R.id.buttonIDnext);
         query = findViewById(R.id.queryID);
         botao = findViewById(R.id.btn);
-        colar = findViewById(R.id.imageView6);
-        cliqueID = findViewById(R.id.cliqueID);
-        toolbar = findViewById(R.id.toolbar);
-        mAdView = findViewById(R.id.adView);
-        imageFlutter = findViewById(R.id.imageViewFlutterID);
+        ImageView colar = findViewById(R.id.imageView6);
+        TextView cliqueID = findViewById(R.id.cliqueID);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        AdView mAdView = findViewById(R.id.adView);
+        ImageView imageFlutter = findViewById(R.id.imageViewFlutterID);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                showFlutter();
+            }
+        }, 5000);
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -86,7 +93,7 @@ public class createActivity extends AppCompatActivity {
         imageFlutter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendoflutter.aprendendo_flutter")));
+                goFlutter();
             }
         });
 
@@ -111,13 +118,6 @@ public class createActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
         backButotn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,12 +133,63 @@ public class createActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_pages, menu);
-        return true;
+    public void showFlutter() {
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Você conhece o Flutter?");
+        alertDialog.setIcon(android.R.drawable.stat_sys_download);
+        alertDialog.setMessage("Aprenda agora sobre desenvolvimento de apps!");
+        alertDialog.setCancelable(false);
+        alertDialog.setPositiveButton("Quero aprender desenvolvimento mobile", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                goFlutter();
+            }
+        });
+        alertDialog.setNegativeButton("Não quero", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        AlertDialog alert = alertDialog.create();
+        alert.show();
+    }
+
+    public void goFlutter() {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendoflutter.aprendendo_flutter")));
+    }
+
+    private void enabledAdsInterstitial() {
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        AdRequest adRequesti = new AdRequest.Builder().build();
+
+        InterstitialAd.load(this, "ca-app-pub-3721429763641925/6877262672", adRequesti,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        mInterstitialAd = interstitialAd;
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        mInterstitialAd = null;
+                    }
+                });
+        if (mInterstitialAd != null) {
+            mInterstitialAd.show(createActivity.this);
+        } else {
+            Log.d("TAG", "The interstitial ad wasn't ready yet.");
+        }
+
     }
 
     @Override
@@ -147,8 +198,14 @@ public class createActivity extends AppCompatActivity {
             case R.id.toolbarInicio:
                 homePage();
                 break;
+            case R.id.toolbarFlutter:
+                Flutter();
+                break;
             case R.id.toolbarDonate:
                 Donate();
+                break;
+            case R.id.toolbarRate:
+                Rate();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -168,30 +225,11 @@ public class createActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void enabledAdsInterstitial() {
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {}
-        });
-        AdRequest adRequesti = new AdRequest.Builder().build();
+    public void Flutter() {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendoflutter.aprendendo_flutter")));
+    }
 
-        InterstitialAd.load(this,"ca-app-pub-3721429763641925/6877262672", adRequesti,
-                new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        mInterstitialAd = interstitialAd;
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        mInterstitialAd = null;
-                    }
-                });
-        if (mInterstitialAd != null) {
-            mInterstitialAd.show(createActivity.this);
-        } else {
-            Log.d("TAG", "The interstitial ad wasn't ready yet.");
-        }
-
+    public void Rate() {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendosql")));
     }
 }

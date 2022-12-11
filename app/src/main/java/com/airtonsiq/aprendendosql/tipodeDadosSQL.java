@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -73,8 +74,14 @@ public class tipodeDadosSQL extends AppCompatActivity {
             case R.id.toolbarInicio:
                 homePage();
                 break;
+            case R.id.toolbarFlutter:
+                Flutter();
+                break;
             case R.id.toolbarDonate:
                 Donate();
+                break;
+            case R.id.toolbarRate:
+                Rate();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -93,4 +100,13 @@ public class tipodeDadosSQL extends AppCompatActivity {
         Intent intent = new Intent(this, activity_donate.class);
         startActivity(intent);
     }
+
+    public void Flutter() {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendoflutter.aprendendo_flutter")));
+    }
+
+    public void Rate() {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendosql")));
+    }
+
 }

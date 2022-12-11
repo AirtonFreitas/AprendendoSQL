@@ -3,12 +3,16 @@ package com.airtonsiq.aprendendosql;
 ;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -54,6 +58,13 @@ public class insertActivity extends AppCompatActivity {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                showRate();
+            }
+        }, 5000);
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -117,39 +128,6 @@ public class insertActivity extends AppCompatActivity {
         });
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_pages, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.toolbarInicio:
-                homePage();
-                break;
-            case R.id.toolbarDonate:
-                Donate();
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-        return false;
-    }
-
-    public void homePage() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-
-    public void Donate() {
-        Intent intent = new Intent(this, activity_donate.class);
-        startActivity(intent);
-    }
-
     private void enabledAdsInterstitial() {
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -178,4 +156,76 @@ public class insertActivity extends AppCompatActivity {
 
     }
 
+    public void showRate() {
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Está gostando do nosso app?");
+        alertDialog.setIcon(android.R.drawable.star_big_on);
+        alertDialog.setMessage("Nos ajude a melhorar, avaliando nosso aplicativo.");
+        alertDialog.setCancelable(false);
+        alertDialog.setPositiveButton("Avaliar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                goRate();
+            }
+        });
+        alertDialog.setNegativeButton("Não quero", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        AlertDialog alert = alertDialog.create();
+        alert.show();
+    }
+    public void goRate() {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendosql")));
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_pages, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.toolbarInicio:
+                homePage();
+                break;
+            case R.id.toolbarFlutter:
+                Flutter();
+                break;
+            case R.id.toolbarDonate:
+                Donate();
+                break;
+            case R.id.toolbarRate:
+                Rate();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return false;
+    }
+
+    public void homePage() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+    public void Donate() {
+        Intent intent = new Intent(this, activity_donate.class);
+        startActivity(intent);
+    }
+
+    public void Flutter() {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendoflutter.aprendendo_flutter")));
+    }
+
+    public void Rate() {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendosql")));
+    }
 }
