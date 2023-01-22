@@ -9,6 +9,7 @@ android {
         targetSdkVersion 31
         versionCode 17
         versionName "2.9"
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
