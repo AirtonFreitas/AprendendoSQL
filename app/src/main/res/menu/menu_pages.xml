@@ -4,25 +4,25 @@
     <item
         android:id="@+id/toolbarInicio"
         android:orderInCategory="100"
-        android:title="🏠 Início"
+        android:title="@string/toolbarInicio"
         app:showAsAction="never"
         />
     <item
         android:id="@+id/toolbarFlutter"
         android:orderInCategory="100"
-        android:title="🚀 Aprenda Flutter"
+        android:title="@string/toolbarFlutter"
         app:showAsAction="never"
         />
     <item
         android:id="@+id/toolbarRate"
         android:orderInCategory="100"
-        android:title="🏅 Avalie nosso App"
+        android:title="@string/toolbarAvalie"
         app:showAsAction="never"
         />
     <item
         android:id="@+id/toolbarDonate"
         android:orderInCategory="100"
-        android:title="👨‍💻 Apoie o Desenvolvedor"
+        android:title="@string/toolbarDeveloper"
         app:showAsAction="never"
         />
 </menu>

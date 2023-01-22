@@ -31,7 +31,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 public class selectActivity extends AppCompatActivity {
 
-    private Button backButotn, nextButton, botao;
+    private Button backButton, nextButton, botao;
     private EditText query;
     private TextView testeText;
     private ImageView colar;
@@ -44,7 +44,7 @@ public class selectActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select);
-        backButotn = findViewById(R.id.buttonIDback);
+        backButton = findViewById(R.id.buttonIDback);
         nextButton = findViewById(R.id.buttonIDnext);
         query = findViewById(R.id.queryID);
         botao = findViewById(R.id.button);
@@ -76,7 +76,7 @@ public class selectActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (query.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Digite a query, por favor.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.toastErroQueryEmpty, Toast.LENGTH_LONG).show();
                 } else {
                     String querytext = query.getText().toString();
                     try {
@@ -97,17 +97,17 @@ public class selectActivity extends AppCompatActivity {
                             resultado += dadoRetornado + "\n";
                         }
                         bancoDados.close();
-                        Toast.makeText(getApplicationContext(), "Comando enviado com sucesso!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.tableSelectSucess , Toast.LENGTH_SHORT).show();
                         testeText.setText(resultado);
                         enabledAdsInterstitial();
                     } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), "Erro de Sintaxe! Verifique se a tabela já foi criada ou use a opção Colar Exemplo", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.tableSelectError, Toast.LENGTH_LONG).show();
                         enabledAdsInterstitial();
                     }
                 }
             }
         });
-        backButotn.setOnClickListener(new View.OnClickListener() {
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(selectActivity.this, insertActivity.class);

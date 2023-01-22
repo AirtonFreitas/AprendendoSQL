@@ -75,13 +75,13 @@ public class dropActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (query.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Digite a query, por favor.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.toastErroQueryEmpty, Toast.LENGTH_LONG).show();
                 } else {
                     String querytext = query.getText().toString();
                     try {
                         SQLiteDatabase bancoDados = openOrCreateDatabase("NovoBanco", MODE_PRIVATE, null);
                         bancoDados.execSQL(querytext);
-                        Toast.makeText(getApplicationContext(), "Tabela apagada com sucesso!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.tableDropSucess, Toast.LENGTH_LONG).show();
                         bancoDados.close();
 
                         imagemTabela.setImageResource(R.drawable.lixeira);
@@ -96,7 +96,7 @@ public class dropActivity extends AppCompatActivity {
                         }, 2000);
 
                     } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), "Erro de Sintaxe! Verifique se já apagou a tabela ou use a opção Colar Exemplo", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.tableDropError, Toast.LENGTH_LONG).show();
                         enabledAdsInterstitial();
                     }
                 }

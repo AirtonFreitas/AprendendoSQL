@@ -1,0 +1,276 @@
+<resources>
+    <string name="app_name">Aprendendo SQL</string>
+    <string name="nameApp">Aprendendo SQL</string>
+    <string name="tiposdeDadosSQL">
+        Uma tabela de um banco de dados pode gravar diferentes dados. E nessa tabela cada coluna pode ter um campo destinado a um <b>Tipo de Dados</b> difente.
+        \nPor exemplo podemos ter uma coluna própria para gravar <b>DATA</b>. Outra coluna para gravar somente <b>NÚMEROS</b>. Ou <b>TEXTO</b>.
+        \nSe tentarmos inserir um <i>texto</i> em uma coluna que só permite <i>números</i>, o banco de dados irá apresentar erro.
+        \nAlguns dos tipos de Dados são:
+        \n
+        \n<b>INT</b> - Número Inteiro de -2.147.483.648 à 2.147.483.647;
+        \n<b>SMALLINT</b> - Número Inteiro de -32768 à 32767;
+        \n<b>MONEY</b> - Valores monetários ou de moeda de -922.337.203.685.477,5808 à 922.337.203.685.477,5807;
+        \n<b>DATE</b> - Data;
+        \n<b>DATETIME</b> - Data e Hora;
+        \n<b>CHAR</b> - Tipos de dados de caractere que sejam de tamanho fixo;
+        \n<b>VARCHAR</b> - Tipos de dados de caractere que sejam de tamanho variável;
+        \n<b>TEXT</b> - Tipos de dados fixos e de comprimento variável para armazenar dados binários e de caracteres não Unicode e Unicode grandes.
+        \n
+        \nEntre outros, como:
+        \n<b>DECIMAL</b>;
+        \n<b>NUMERIC</b>;
+        \n<b>FLOAT</b>;
+        \n<b>REAL</b>.
+    </string>
+    <string name="textIntroducao">Um banco de dados é uma coleção organizada de informações, ou dados, estruturadas. Normalmente armazenadas eletrônicamente em um sistema de computador. Um banco de dados é geralmente controlado por um sistema de gerenciamento de banco de dados</string>
+    <string name="textTable">O Banco de dados pode ser comparado a uma planilha de informações. Sendo que cada coluna corresponde a um Atributo.
+        \nNo caso abaixo temos vários atributos de uma tabela chamada <font color="#ff0000"><b>CLIENTES</b></font>.
+        \nTemos os atributos <font color="#0000ff"><b>NOME</b></font>, <font color="#0000ff"><b>SOBRENOME</b></font>, <font color="#0000ff"><b>DATANASCIMENTO</b></font>, <font color="#0000ff"><b>TELEFONE</b></font> e <font color="#0000ff"><b>CPF</b></font></string>
+    <string name="textDescricao">Cada linha possui informações que podem ser Inseridas, Editadas e Apagadas. No exemplo destacado acima, por exemplo, temos um cadastro de uma pessoa com os seguintes dados:
+    </string>
+    <string name="textDescricaoTupla">Nome: Marcia,  Sobrenome: Brandão,
+        Nascida em 15/01/1995,
+        Telefone (31)99314-5498 e CPF 658.454.151-87</string>
+    <string name="introducaoSGBD"> Para manipular os dados em nossa base precisamos de um SGBD, que é o Sistema de Gerenciamento de Banco de Dados.
+       \nVisto que aprendemos o conceito, vamos partir para a prática do SQL (Structure Query Language).
+       \nEm nosso caso usaremos o <b>SQLite</b>, mas devemos lembrar que existem outros SGDB que também fazem a mesma função de manipular dados armazenados.
+        Como dito, o nosso será o <b>SQLite</b>.
+    </string>
+    <string name="nomeBotao">Próximo</string>
+    <string name="nomeBotaoVoltar">Anterior</string>
+    <string name="sql">A Linguagem SQL pode ser dividida em <b>DML</b> (Data Manipulation Language) e <b>DDL</b> (Data Definition Language).
+    \nOnde DML é voltada para Manipulação dos Dados e DDL voltada para Definição dos Dados.
+    </string>
+    <string name="sqlTit"><font color="#ffffff"><b>SQL</b></font></string>
+    <string name="insert">- Insere dados em uma Tabela</string>
+    <string name="update">- Altera dados de uma Tabela</string>
+    <string name="select">- Seleciona dados em uma Tabela</string>
+    <string name="delete">- Deleta dados de uma Tabela</string>
+    <string name="drop">- Apaga uma Tabela</string>
+    <string name="alter">- Altera a estrutura de uma Tabela</string>
+    <string name="create">- Cria uma Tabela</string>
+
+    <string name="create_tit">Aprendendo SQL - CREATE</string>
+    <string name="select_tit">Aprendendo SQL - SELECT</string>
+    <string name="drop_tit">Aprendendo SQL - DROP</string>
+    <string name="delete_tit">Aprendendo SQL - DELETE</string>
+    <string name="update_tit">Aprendendo SQL - UPDATE</string>
+    <string name="alter_tit">Aprendendo SQL - ALTER</string>
+    <string name="insert_tit">Aprendendo SQL - INSERT</string>
+
+
+    <string name="instruction_create">O Create tem a função de criar a tabela no banco de dados.
+        \nA query deve conter o seguinte padrão:
+    </string>
+    <string name="instruction_select">Usando o <b><font color="#0000FF">*</font></b> no comando SELECT, indica que estamos buscando <b>todos</b> as colunas da tabela em nosso resultado. Poderiamos selecionar apenas uma coluna ou mais de uma coluna.
+        \nPor exemplo:
+        \n<b>SELECT <font color="#0000ff">NOME</font> FROM <font color="#FF0000">CLIENTE</font></b>, retornaria somente o NOME dos clientes.
+        \n<b>SELECT <font color="#0000ff">NOME, CPF</font> FROM <font color="#FF0000">CLIENTE</font></b>, retornaria NOME e CPF dos clientes.
+        \nFique a vontade para testar as querys abaixo:
+    </string>
+
+
+    <string name="instruction_select3">Podemos usar cláusulas dentro de um WHERE(onde), para podemos filtrar nossos resultados. Por exemplo:
+    </string>
+
+    <string name="instruction_drop">Mussum Ipsum, cacilds vidis litro abertis. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose. Delegadis gente finis, bibendum e</string>
+    <string name="instruction_delete">Neste momento você estará apagando qualquer linha do banco de dados que atenda as condições que você colocou dentro do Where.
+        \n No caso acima apagamos o cliente que tem o código = 2.
+        \n Mas poderíamos apagar usando outras colunas como referencia.
+        Por exemplo, apagar todos os clientes que possuem o CPF vazio. Ou que possui um CPF específico.
+        \n Temos que tomar cuidado, pois se executarmos uma query sem as condições definidas, ela vai executar a ação para todas as linhas da tabela.
+        \n A query <b><font color="#ff0000">DELETE FROM CLIENTE</font></b> deletaria TODAS as linhas da tabela.
+    </string>
+    <string name="instruction_update">Vamos alterar o nome <b><font color="#00B1FF">"''JOÃO C.''"</font></b> para <b><font color="#00B1FF">"''JOÃO CARLOS''"</font></b>.</string>
+
+
+    <string name="instruction_insert2">
+        INSERT INTO <font color="#ff0000">CLIENTE</font> (<font color="#00ff00">CODIGO</font>, <font color="#00ff00">NOME</font>, <font color="#00ff00">CPF</font>)
+        \nVALUES
+        \n (<font color="#00ff00">1</font>, <font color="#00ff00">"''AIRTON S.''"</font>, <font color="#00ff00">"''154.854.846-21''"</font>),
+        \n (<font color="#00ff00">2</font>, <font color="#00ff00">"''JOAO C.''"</font>, <font color="#00ff00">"''664.844.646-24''"</font>),
+        \n (<font color="#00ff00">3</font>, <font color="#00ff00">"''MARIA S.''"</font>, <font color="#00ff00">"''194.747.966-34''"</font>);
+    </string>
+
+    <string name="instruction_create2">CREATE TABLE <font color="#ff0000">CLIENTE</font>
+        \n(<font color="#00ff00">CODIGO</font> <font color="#0000ff">INT</font>,
+        \n<font color="#00ff00">NOME</font> <font color="#0000ff">CHAR</font>,
+        \n<font color="#00ff00">CPF</font> <font color="#0000ff">CHAR</font>)</string>
+
+    <string name="query_example_create">CREATE TABLE</string>
+    <string name="query_example_nometabela">NOME DA TABELA</string>
+    <string name="query_example_primcol">(PRIMEIRA COLUNA + TIPO ,</string>
+    <string name="query_example_segcol">SEGUNDA COLUNA + TIPO ,</string>
+    <string name="query_example_ultcol">ULTIMA COLUNA + TIPO)</string>
+
+
+    <string name="instruction_select2">
+        SELECT <font color="#0000ff">*</font> FROM <font color="#ff0000">CLIENTE</font>
+    </string>
+    <string name="instruction_select4">
+        SELECT <font color="#0000ff">*</font> FROM <font color="#ff0000">CLIENTE</font>
+        \nWHERE <font color="#00ff00">CODIGO</font> = <font color="#0000ff">2</font>
+    </string>
+
+    <string name="instruction_select5">
+        Dessa forma iremos retornar somente as linhas que contenham o CODIGO = 2.
+        O <b>WHERE</b> é um filtro de nossos resultados.
+        \n\nEm uma tabela onde temos informações como <font color="#00B1FF"><b>ENDEREÇO, GENERO, DATA DE NASCIMENTO</b></font> podemos usar o <b><i>WHERE</i></b> para retornar somente os resultados que nós desejamos no filtro.
+        \n\nPor exemplo:
+        \n<b>SELECT * FROM <font color="#ff0000">clientes</font> WHERE <font color="#0000FF">genero = F</font> AND <font color="#0000FF">datanascimento > "'1999-01-01'";</font></b>
+        \n\nRetornaria somente os <font color="#ff0000">clientes</font> do <font color="#0000FF">GENERO Feminino</font>, e com a <font color="#0000FF">Data de Nascimento MAIOR do que 01 de Janeiro de 1999.</font>
+    </string>
+
+    <string name="instruction_drop2">DROP TABLE <font color="#ff0000">CLIENTE</font></string>
+    <string name="instruction_drop3">Após realizarmos o comando acima, nossa tabela será deletada do Banco de dados, com todos seus dados já inseridos.</string>
+    <string name="instruction_delete2">DELETE FROM <font color="#ff0000">CLIENTE</font>
+        \nWHERE <font color="#00ff00">CODIGO</font> = <font color="#0000ff">2</font></string>
+    <string name="instruction_update2">UPDATE <font color="#FF0000">CLIENTE</font>
+        \nSET <font color="#00ff00">NOME</font> = <font color="#0000ff">"''JOÃO CARLOS''"</font>
+        \nWHERE <font color="#00ff00">CODIGO</font> = <font color="#0000ff">2</font>
+    </string>
+
+    <string name="instruction_update3">Para realizarmos a alteração acima, a query seria:</string>
+
+
+    <string name="instruction_alter_renomeando">ALTER TABLE <font color="#ff0000">CLIENTE</font>
+        \nRENAME COLUMN <font color="#00ff00">CODIGO</font>
+        \nTO  <font color="#00ff00">COD</font></string>
+    <string name="instruction_alter_excluindo">ALTER TABLE <font color="#ff0000">CLIENTE</font>
+        \nDROP COLUMN <font color="#00ff00">TELEFONE</font></string>
+    <string name="instruction_alter_adicionando">ALTER TABLE <font color="#ff0000">CLIENTE</font>
+        \nADD <font color="#00ff00">TELEFONE</font> <font color="#0000ff">INT</font>
+    </string>
+
+    <string name="alter_instruction_renomeando">Com uma tabela já criada, é possível renomear uma coluna dentro da tabela. Para trocar o nome da coluna, são as instruções abaixo.</string>
+    <string name="alter_instriction_adicionando">Mesmo após criar uma tabela, as vezes é necessário acrescentar uma coluna na tabela. Por exemplo no caso abaixo, iremos adicionar a coluna <font color="#00ff00">TELEFONE</font> dentro da tabela <font color="#ff0000">CLIENTE</font>.</string>
+    <string name="alter_instruction_excluindo">Também é possível excluir uma coluna dentro da tabela. No exemplo abaixo, vamos apagar a coluna <font color="#00ff00">TELEFONE</font> da tabela <font color="#ff0000">CLIENTE</font>. </string>
+
+
+    <string name="create_descricao">Seguindo a query do exemplo, a orientação é que crie uma Tabela com o nome <font color="#FF0000">CLIENTE</font>. E que tenha as Colunas:
+        \n<font color="#00ff00">CODIGO</font> do tipo <font color="#0000FF">INT</font>;
+        \n<font color="#00ff00">NOME</font> do tipo <font color="#0000FF">CHAR</font>;
+        \n<font color="#00ff00">CPF</font> do tipo <font color="#0000FF">CHAR</font>.
+    </string>
+    <string name="insert_descricao">Seguindo a query do exemplo, a orientação é que insira dados na tabela <font color="#FF0000">CLIENTE</font>. Referente as Colunas:
+         <font color="#00ff00">CODIGO</font> ,
+         <font color="#00ff00">NOME</font> e
+         <font color="#00ff00">CPF</font>.
+        \nE abaixo a instrução VALUES com os valores que desejam inserir na tabela.
+    </string>
+
+    <string name="delete_descricao">Seguindo a query do exemplo, a orientação é que apague os dados na tabela <font color="#FF0000">CLIENTE</font>, onde(where) o valor do
+        <font color="#00ff00">CODIGO</font>
+        seja igual a <font color="#00ff00">2</font>.
+        \nPoderiamos acrescentar outras condições para essa operação usando Operadores Lógicos.
+    </string>
+
+    <string name="drop_descricao">Seguindo a query do exemplo, a orientação é que apague a tabela <font color="#FF0000">CLIENTE</font>.
+        \n
+        \nVai reamente <b>deletar</b> a tabela e <b>todos os dados</b> dela.
+        \nVamos testar?
+    </string>
+
+    <string name="resultado_select"><font color="#ff0000">Clique no Botão acima com a query digitada.
+        \nAqui será listado o resultado do SELECT.</font>
+    </string>
+
+
+    <string name="create_pratica">Colocando em Prática. Siga o exemplo abaixo, Para que possa seguir as próximas querys com mais facilidade. Então recomendamos que siga o exemplo proposto.</string>
+    <string name="insert_pratica">Após termos a nossa tabela CLIENTE criada, podemos agora inserir dados nela. Siga o exemplo abaixo:</string>
+    <string name="select_pratica">O SELECT é um comando para buscar dados que já estão gravados na tabela.</string>
+    <string name="delete_pratica">O DELETE é um comando para apagar dados que já estão gravados na tabela.</string>
+    <string name="drop_pratica">O DROP é um comando para apagar a tabela criada.</string>
+    <string name="update_pratica">O UPDATE é um comando para alterar dados que já tenham sido inseridos na tabela. Então se nós quisermos alterar alguma informação em nossa tabela, usaremos o comando UPDATE.</string>
+    <string name="alter_pratica">O ALTER é um comando usado para alterar uma tabela já criada.
+        \nÉ possível <b>Adicionar uma Coluna</b>, <b>Excluir uma Coluna</b>, ou até mesmo <b>Renomear uma Coluna</b>.
+        \nVamos ver essas 3 opções, mas o comando <b>ALTER</b> possui mais opções para edição de uma tabela.
+    </string>
+
+    <string name="alter_pratica_renomear">Nesta query estaremos alterando a coluna <b><font color="#00ff00">CODIGO</font></b> para <b><font color="#00ff00">COD</font></b>.
+        \n<b><i>Não será testada Pois é incompatível com SQLite do Android.</i></b>
+    </string>
+
+    <string name="alter_pratica_deletar">Nesta query estaremos apagando a coluna <b><font color="#00ff00">TELEFONE</font></b> da tabela <b><font color="#ff0000">CLIENTE</font></b>.
+        \n<b><i>Não será testada Pois é incompatível com SQLite do Android.</i></b>
+    </string>
+
+    <string name="alter_pratica_adicionar">Nesta query estaremos adicionamos uma coluna <b><font color="#00ff00">TELEFONE</font></b> na tabela <b><font color="#ff0000">CLIENTE</font></b>.
+    </string>
+
+
+    <string name="alter_lite"> Não iremos fazer os testes de todos os comandos ALTER em nosso banco de dados, pois a maioria desses comandos são incompatíveis com o <b>SQLite</b> do Android.</string>
+
+    <string name="escolhaTipoApp">Agora seguiremos nosso estudo e em cada página, aprenderemos como aplicar as querys nosso banco de dados.
+        \nSugerimos que siga exatamente o modelo proposto de query, pois a medida que formos aprofundando nos comandos, fica um pouco mais fácil para acompanhar, caso você tenha criado suas tabelas personalizadas.
+    </string>
+    <string name="alter_renomeando"><b><font color="#ffffff">RENOMEANDO UMA COLUNA</font></b></string>
+    <string name="alter_adicionando"><b><font color="#ffffff">ADICIONANDO UMA COLUNA</font></b></string>
+    <string name="alter_excluindo"><b><font color="#ffffff">EXCLUINDO UMA COLUNA</font></b></string>
+
+    <string name="where"><b><font color="#ffffff">WHERE</font></b></string>
+    <string name="contragulations"><b>Parabéns!!</b></string>
+    <string name="congratulations2">Você finalizou com sucesso as aulas de banco de Dados e as Querys básicas de SQL.
+        \nPreencha abaixo o seu nome completo para emissão do Certificado.</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="LinkedIN">linkedin.com/in/airton-siqueira-85260b174</string>
+    <string name="contato">Críticas construtivas são bem vindas!!</string>
+
+
+
+
+
+
+    <string name="instruction_update5">Todos os dados, uma vez inseridos na tabela, podem ser editados usando o comando UPDATE.    </string>
+    <string name="updateActualy"><font color="#ff0000">Caso já tenha a tabela CLIENTE criada, os dados aparecerão aqui embaixo.</font></string>
+    <string name="exampleDB">Abaixo temos um exemplo real de Banco de Dados</string>
+    <string name="forCreate">Então para criar a tabela abaixo, seria a respectiva query</string>
+    <string name="types">- para saber mais sobre Tipo de Dados</string>
+    <string name="seeMore">VEJA MAIS</string>
+    <string name="hintQuery">digite a query aqui..</string>
+    <string name="pasteExample">colar exemplo</string>
+    <string name="sendQuery">enviar query</string>
+    <string name="errorSelect">Não conseguimos buscar dados na tabela CLIENTE. Use o CREATE e o INSERT antes de atualizar dados.</string>
+    <string name="toastErroQueryEmpty">Digite a query, por favor.</string>
+    <string name="tableCreatedSucess">Tabela criada com sucesso!</string>
+    <string name="tableInsertSucess">Dados inseridos com sucesso!</string>
+    <string name="tableSelectSucess">Comando enviado com sucesso!</string>
+    <string name="tableAlterSucess">Alteração enviada com sucesso!</string>
+    <string name="tableDropSucess">Tabela apagada com sucesso!</string>
+    <string name="tableCreatedError">Erro de Sintaxe! Verifique se a tabela já foi criada antes ou use o botão Colar Exemplo.</string>
+    <string name="tableInsertError">Erro de Sintaxe! Verifique se a tabela já foi criada ou use a opção Colar Exemplo.</string>
+    <string name="tableSelectError">Erro de Sintaxe! Verifique se a tabela já foi criada ou use a opção Colar Exemplo.</string>
+    <string name="tableAlterError">Erro de Sintaxe! Verifique se a tabela já foi criada ou use a opção Colar Exemplo.</string>
+    <string name="tableAltersError">Erro de Sintaxe! Revise ou use a opção Colar Exemplo.</string>
+    <string name="tableDropError">Erro de Sintaxe! Verifique se já apagou a tabela ou use a opção Colar Exemplo</string>
+    <string name="knowFlutter">Você conhece o Flutter?</string>
+    <string name="learnFlutter">Aprenda agora sobre desenvolvimento de apps!</string>
+    <string name="IlearnFlutter">Quero aprender desenvolvimento mobile</string>
+    <string name="InolearnFlutter">Não quero</string>
+    <string name="rateApp">Está gostando do nosso app?</string>
+    <string name="helpApp">Nos ajude a melhorar, avaliando nosso aplicativo.</string>
+    <string name="yesApp">Avaliar</string>
+    <string name="noApp">Não quero</string>
+    <string name="gerarCertificado">Gerar</string>
+    <string name="sharedCertificado">Compatilhar</string>
+    <string name="hintName">Nome Completo...</string>
+    <string name="rateThisApp">Avalie nosso aplicativo</string>
+    <string name="nameFullPlease">Preencha o Nome Completo por favor.</string>
+    <string name="nameFullPleaseGen">Preencha o Nome Completo e clique em Gerar Certificado</string>
+    <string name="generateSucess">Gerado com Sucesso..</string>
+    <string name="generateError">Houve falha ao gerar o PDF. Detalhamento:   </string>
+    <string name="toolbarInicio">🏠 Início</string>
+    <string name="toolbarFlutter">🚀 Aprenda Flutter</string>
+    <string name="toolbarAvalie">🏅 Avalie nosso App</string>
+    <string name="toolbarDeveloper">👨‍💻 Apoie o Desenvolvedor</string>
+
+
+
+
+
+
+
+
+
+</resources>

@@ -100,7 +100,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:ems="10"
-            android:hint="digite a query aqui.."
+            android:hint="@string/hintQuery"
             android:inputType="textMultiLine"
             android:textColor="#555555"
             app:layout_constraintEnd_toStartOf="@+id/textView32"
@@ -127,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="6dp"
-            android:text="colar exemplo"
+            android:text="@string/pasteExample"
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView6" />
@@ -139,7 +139,7 @@
             android:layout_height="@dimen/btn_altura"
             android:layout_marginTop="32dp"
             android:background="@drawable/rouded_corner_cinza"
-            android:text="enviar query"
+            android:text="@string/sendQuery"
             android:textColor="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -150,36 +150,34 @@
             android:id="@+id/buttonIDnext"
             android:layout_width="@dimen/btn_largura"
             android:layout_height="@dimen/btn_altura"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="@dimen/esp_btnlateral"
-            android:layout_marginBottom="@dimen/esp_btnInferior"
             android:background="@drawable/rouded_corner"
             android:text="@string/nomeBotao"
             android:textColor="@color/colorAccent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
         <Button
             android:id="@+id/buttonIDback"
             android:layout_width="@dimen/btn_largura"
             android:layout_height="@dimen/btn_altura"
             android:layout_marginStart="@dimen/esp_btnlateral"
-            android:layout_marginBottom="@dimen/esp_btnInferior"
+            android:layout_marginTop="24dp"
             android:background="@drawable/rouded_corner"
             android:text="@string/nomeBotaoVoltar"
             android:textColor="@color/colorAccent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
         <TextView
             android:id="@+id/textView30"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
             android:padding="10dp"
             android:text="@string/instruction_drop3"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonIDback"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn" />
@@ -196,8 +194,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonIDnext"
-            app:layout_constraintVertical_bias="1.0"></com.google.android.gms.ads.AdView>
+            app:layout_constraintTop_toBottomOf="@+id/buttonIDback"></com.google.android.gms.ads.AdView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

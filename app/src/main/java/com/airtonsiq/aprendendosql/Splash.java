@@ -22,14 +22,7 @@ public class Splash extends AppCompatActivity {
         handle.postDelayed(new Runnable() {
             @Override
             public void run() {
-                imageViews.setImageResource(R.drawable.ads);
-                Handler handle = new Handler();
-                handle.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        nextActivity();
-                    }
-                }, 1600);
+                nextActivity();
             }
         }, 1600);
 

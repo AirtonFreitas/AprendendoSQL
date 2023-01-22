@@ -92,18 +92,18 @@ public class insertActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (query.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Digite a query, por favor.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.toastErroQueryEmpty, Toast.LENGTH_LONG).show();
                     enabledAdsInterstitial();
                 } else {
                     String querytext = query.getText().toString();
                     try {
                         SQLiteDatabase bancoDados = openOrCreateDatabase("NovoBanco", MODE_PRIVATE, null);
                         bancoDados.execSQL(querytext);
-                        Toast.makeText(getApplicationContext(), "Dados inseridos com sucesso!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.tableInsertSucess , Toast.LENGTH_LONG).show();
                         bancoDados.close();
                         enabledAdsInterstitial();
                     } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), "Erro de Sintaxe! Verifique se a tabela já foi criada ou use a opção Colar Exemplo", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.tableInsertError, Toast.LENGTH_LONG).show();
                         enabledAdsInterstitial();
                     }
                 }
@@ -157,27 +157,30 @@ public class insertActivity extends AppCompatActivity {
     }
 
     public void showRate() {
+        try {
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+            alertDialog.setTitle(R.string.rateApp);
+            alertDialog.setIcon(android.R.drawable.star_big_on);
+            alertDialog.setMessage(R.string.helpApp);
+            alertDialog.setCancelable(false);
+            alertDialog.setPositiveButton(R.string.yesApp, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    goRate();
+                }
+            });
+            alertDialog.setNegativeButton(R.string.noApp, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
 
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle("Está gostando do nosso app?");
-        alertDialog.setIcon(android.R.drawable.star_big_on);
-        alertDialog.setMessage("Nos ajude a melhorar, avaliando nosso aplicativo.");
-        alertDialog.setCancelable(false);
-        alertDialog.setPositiveButton("Avaliar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                goRate();
-            }
-        });
-        alertDialog.setNegativeButton("Não quero", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-        AlertDialog alert = alertDialog.create();
-        alert.show();
+                }
+            });
+            AlertDialog alert = alertDialog.create();
+            alert.show();
+        } catch (Exception e) {
+        }
     }
+
     public void goRate() {
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.aprendendosql")));
     }
