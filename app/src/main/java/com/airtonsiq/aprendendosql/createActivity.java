@@ -1,6 +1,7 @@
 package com.airtonsiq.aprendendosql;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -38,6 +39,7 @@ public class createActivity extends AppCompatActivity {
     private Button botao;
     private EditText query;
     private InterstitialAd mInterstitialAd;
+    private Toolbar toolbar;
 
 
     @Override
@@ -51,9 +53,8 @@ public class createActivity extends AppCompatActivity {
         botao = findViewById(R.id.btn);
         ImageView colar = findViewById(R.id.imageView6);
         TextView cliqueID = findViewById(R.id.cliqueID);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         AdView mAdView = findViewById(R.id.adView);
-        ImageView imageFlutter = findViewById(R.id.imageViewFlutterID);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
@@ -61,6 +62,7 @@ public class createActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+
                 showFlutter();
             }
         }, 5000);
@@ -77,6 +79,7 @@ public class createActivity extends AppCompatActivity {
         cliqueID.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                onStop();
                 Intent intent = new Intent(createActivity.this, tipodeDadosSQL.class);
                 startActivity(intent);
 
@@ -90,29 +93,21 @@ public class createActivity extends AppCompatActivity {
             }
         });
 
-        imageFlutter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goFlutter();
-            }
-        });
-
         botao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (query.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Digite a query, por favor.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.toastErroQueryEmpty, Toast.LENGTH_LONG).show();
                 } else {
                     String querytext = query.getText().toString();
                     try {
                         SQLiteDatabase bancoDados = openOrCreateDatabase("NovoBanco", MODE_PRIVATE, null);
                         bancoDados.execSQL(querytext);
-                        Toast.makeText(getApplicationContext(), "Tabela criada com sucesso!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.tableCreatedSucess, Toast.LENGTH_LONG).show();
                         bancoDados.close();
                         enabledAdsInterstitial();
                     } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), "Erro de Sintaxe! Verifique se a tabela já foi criada antes ou use o botão Colar Exemplo.", Toast.LENGTH_LONG).show();
-                        enabledAdsInterstitial();
+                        Toast.makeText(getApplicationContext(), R.string.tableCreatedError, Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -121,9 +116,9 @@ public class createActivity extends AppCompatActivity {
         backButotn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent intent = new Intent(createActivity.this, MainActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -138,26 +133,28 @@ public class createActivity extends AppCompatActivity {
     }
 
     public void showFlutter() {
+        try {
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+            alertDialog.setTitle(R.string.knowFlutter);
+            alertDialog.setIcon(android.R.drawable.stat_sys_download);
+            alertDialog.setMessage(R.string.learnFlutter);
+            alertDialog.setCancelable(false);
+            alertDialog.setPositiveButton(R.string.IlearnFlutter, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    goFlutter();
+                }
+            });
+            alertDialog.setNegativeButton(R.string.InolearnFlutter, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
 
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle("Você conhece o Flutter?");
-        alertDialog.setIcon(android.R.drawable.stat_sys_download);
-        alertDialog.setMessage("Aprenda agora sobre desenvolvimento de apps!");
-        alertDialog.setCancelable(false);
-        alertDialog.setPositiveButton("Quero aprender desenvolvimento mobile", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                goFlutter();
-            }
-        });
-        alertDialog.setNegativeButton("Não quero", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-        AlertDialog alert = alertDialog.create();
-        alert.show();
+                }
+            });
+            AlertDialog alert = alertDialog.create();
+            alert.show();
+        } catch (Exception e) {
+        }
     }
 
     public void goFlutter() {
@@ -190,6 +187,12 @@ public class createActivity extends AppCompatActivity {
             Log.d("TAG", "The interstitial ad wasn't ready yet.");
         }
 
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_pages, menu);
+        return true;
     }
 
     @Override

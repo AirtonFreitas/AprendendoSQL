@@ -70,17 +70,17 @@ public class deleteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (query.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Digite a query, por favor.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.toastErroQueryEmpty, Toast.LENGTH_LONG).show();
                 } else {
                     String querytext = query.getText().toString();
                     try {
                         SQLiteDatabase bancoDados = openOrCreateDatabase("NovoBanco", MODE_PRIVATE, null);
                         bancoDados.execSQL(querytext);
-                        Toast.makeText(getApplicationContext(), "Comando enviado com sucesso!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.tableSelectSucess, Toast.LENGTH_LONG).show();
                         bancoDados.close();
                         enabledAdsInterstitial();
                     } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), "Erro de Sintaxe!! Revise, ou use a opção Colar Exemplo", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.tableAltersError, Toast.LENGTH_LONG).show();
                         enabledAdsInterstitial();
                     }
                 }

@@ -71,17 +71,17 @@ public class alterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (queryAdicionando.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Digite a query acima, por favor.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.toastErroQueryEmpty, Toast.LENGTH_LONG).show();
                 } else {
                     String querytext = queryAdicionando.getText().toString();
                     try {
                         SQLiteDatabase bancoDados = openOrCreateDatabase("NovoBanco", MODE_PRIVATE, null);
                         bancoDados.execSQL(querytext);
-                        Toast.makeText(getApplicationContext(), "Alteração enviada com sucesso!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.tableAlterSucess, Toast.LENGTH_LONG).show();
                         bancoDados.close();
                         enabledAdsInterstitial();
                     } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), "Erro de Sintaxe!! Revise, ou use a opção Colar Exemplo", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.tableAltersError, Toast.LENGTH_LONG).show();
                         enabledAdsInterstitial();
                     }
                 }

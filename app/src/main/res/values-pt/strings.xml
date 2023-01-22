@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Learn SQL</string>
-    <string name="nameApp">Learn SQL</string>
+    <string name="app_name">Aprendendo SQL</string>
+    <string name="nameApp">Aprendendo SQL</string>
     <string name="tiposdeDadosSQL">
         Uma tabela de um banco de dados pode gravar diferentes dados. E nessa tabela cada coluna pode ter um campo destinado a um <b>Tipo de Dados</b> difente.
         \nPor exemplo podemos ter uma coluna própria para gravar <b>DATA</b>. Outra coluna para gravar somente <b>NÚMEROS</b>. Ou <b>TEXTO</b>.
@@ -82,11 +82,8 @@
         \n A query <b><font color="#ff0000">DELETE FROM CLIENTE</font></b> deletaria TODAS as linhas da tabela.
     </string>
     <string name="instruction_update">Vamos alterar o nome <b><font color="#00B1FF">"''JOÃO C.''"</font></b> para <b><font color="#00B1FF">"''JOÃO CARLOS''"</font></b>.</string>
-    <string name="instruction_update5">
-        Todos os dados, uma vez inseridos na tabela, nós podemos editar usando o comando UPDATE.
 
 
-    </string>
     <string name="instruction_insert2">
         INSERT INTO <font color="#ff0000">CLIENTE</font> (<font color="#00ff00">CODIGO</font>, <font color="#00ff00">NOME</font>, <font color="#00ff00">CPF</font>)
         \nVALUES
@@ -219,8 +216,61 @@
 
     <string name="LinkedIN">linkedin.com/in/airton-siqueira-85260b174</string>
     <string name="contato">Críticas construtivas são bem vindas!!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+
+
+
+    <string name="instruction_update5">Todos os dados, uma vez inseridos na tabela, podem ser editados usando o comando UPDATE.    </string>
+    <string name="updateActualy"><font color="#ff0000">Caso já tenha a tabela CLIENTE criada, os dados aparecerão aqui embaixo.</font></string>
+    <string name="exampleDB">Abaixo temos um exemplo real de Banco de Dados</string>
+    <string name="forCreate">Então para criar a tabela abaixo, seria a respectiva query</string>
+    <string name="types">- para saber mais sobre Tipo de Dados</string>
+    <string name="seeMore">VEJA MAIS</string>
+    <string name="hintQuery">digite a query aqui..</string>
+    <string name="pasteExample">colar exemplo</string>
+    <string name="sendQuery">enviar query</string>
+    <string name="errorSelect">Não conseguimos buscar dados na tabela CLIENTE. Use o CREATE e o INSERT antes de atualizar dados.</string>
+    <string name="toastErroQueryEmpty">Digite a query, por favor.</string>
+    <string name="tableCreatedSucess">Tabela criada com sucesso!</string>
+    <string name="tableInsertSucess">Dados inseridos com sucesso!</string>
+    <string name="tableSelectSucess">Comando enviado com sucesso!</string>
+    <string name="tableAlterSucess">Alteração enviada com sucesso!</string>
+    <string name="tableDropSucess">Tabela apagada com sucesso!</string>
+    <string name="tableCreatedError">Erro de Sintaxe! Verifique se a tabela já foi criada antes ou use o botão Colar Exemplo.</string>
+    <string name="tableInsertError">Erro de Sintaxe! Verifique se a tabela já foi criada ou use a opção Colar Exemplo.</string>
+    <string name="tableSelectError">Erro de Sintaxe! Verifique se a tabela já foi criada ou use a opção Colar Exemplo.</string>
+    <string name="tableAlterError">Erro de Sintaxe! Verifique se a tabela já foi criada ou use a opção Colar Exemplo.</string>
+    <string name="tableAltersError">Erro de Sintaxe! Revise ou use a opção Colar Exemplo.</string>
+    <string name="tableDropError">Erro de Sintaxe! Verifique se já apagou a tabela ou use a opção Colar Exemplo</string>
+    <string name="knowFlutter">Você conhece o Flutter?</string>
+    <string name="learnFlutter">Aprenda agora sobre desenvolvimento de apps!</string>
+    <string name="IlearnFlutter">Quero aprender desenvolvimento mobile</string>
+    <string name="InolearnFlutter">Não quero</string>
+    <string name="rateApp">Está gostando do nosso app?</string>
+    <string name="helpApp">Nos ajude a melhorar, avaliando nosso aplicativo.</string>
+    <string name="yesApp">Avaliar</string>
+    <string name="noApp">Não quero</string>
+    <string name="gerarCertificado">Gerar</string>
+    <string name="sharedCertificado">Compatilhar</string>
+    <string name="hintName">Nome Completo...</string>
+    <string name="rateThisApp">Avalie nosso aplicativo</string>
+    <string name="nameFullPlease">Preencha o Nome Completo por favor.</string>
+    <string name="nameFullPleaseGen">Preencha o Nome Completo e clique em Gerar Certificado</string>
+    <string name="generateSucess">Gerado com Sucesso..</string>
+    <string name="generateError">Houve falha ao gerar o PDF. Detalhamento:   </string>
+    <string name="toolbarInicio">🏠 Início</string>
+    <string name="toolbarFlutter">🚀 Aprenda Flutter</string>
+    <string name="toolbarAvalie">🏅 Avalie nosso App</string>
+    <string name="toolbarDeveloper">👨‍💻 Apoie o Desenvolvedor</string>
+
+
+
+
+
+
+
 
 
 </resources>

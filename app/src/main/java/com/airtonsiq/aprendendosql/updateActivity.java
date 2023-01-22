@@ -1,10 +1,12 @@
 package com.airtonsiq.aprendendosql;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
@@ -36,12 +39,14 @@ public class updateActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
+    private TextView dadosTabelaCliente;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
-
+        dadosTabelaCliente = findViewById(R.id.textdadosBanco);
         backButotn = findViewById(R.id.buttonIDback);
         nextButton = findViewById(R.id.buttonIDnext);
         query = findViewById(R.id.queryID);
@@ -52,6 +57,7 @@ public class updateActivity extends AppCompatActivity {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
+        buscaDadosBanco();
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -71,17 +77,18 @@ public class updateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (query.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Digite a query, por favor.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.toastErroQueryEmpty, Toast.LENGTH_LONG).show();
                 } else {
                     String querytext = query.getText().toString();
                     try {
                         SQLiteDatabase bancoDados = openOrCreateDatabase("NovoBanco", MODE_PRIVATE, null);
                         bancoDados.execSQL(querytext);
-                        Toast.makeText(getApplicationContext(), "Alteração enviada com sucesso!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.tableAlterSucess, Toast.LENGTH_LONG).show();
                         bancoDados.close();
+                        buscaDadosBanco();
                         enabledAdsInterstitial();
                     } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), "Erro de Sintaxe! Verifique se a tabela já foi criada ou use a opção Colar Exemplo", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.tableAlterError, Toast.LENGTH_LONG).show();
                         enabledAdsInterstitial();
                     }
                 }
@@ -103,6 +110,32 @@ public class updateActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void buscaDadosBanco() {
+        try {
+            SQLiteDatabase bancoDados = openOrCreateDatabase("NovoBanco", MODE_PRIVATE, null);
+
+            Cursor cursor = bancoDados.rawQuery("SELECT *  FROM CLIENTE", null);
+
+            String resultado = "";
+
+            while (cursor.moveToNext()) {
+                String dadoRetornado = "";
+                int n;
+                for (n = 0; n < cursor.getColumnCount(); n++) {
+                    dadoRetornado +=
+                            cursor.getColumnName(n) + "  " +
+                                    cursor.getString(n) + "  ";
+                }
+                resultado += dadoRetornado + "\n";
+            }
+            bancoDados.close();
+            dadosTabelaCliente.setText(resultado);
+
+        } catch (Exception e) {
+            dadosTabelaCliente.setText(R.string.errorSelect);
+        }
     }
 
     private void enabledAdsInterstitial() {

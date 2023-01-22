@@ -95,7 +95,7 @@ public class congratulationsActivity extends AppCompatActivity {
                 } else {
 
                     if (nome.getText().toString().equals("")) {
-                        Toast.makeText(getApplicationContext(), "Preencha o Nome Completo por favor.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.nameFullPlease, Toast.LENGTH_SHORT).show();
                     } else {
                         criarPasta();
                         enabledAdsInterstitial();
@@ -131,7 +131,7 @@ public class congratulationsActivity extends AppCompatActivity {
 
     private void shareCert() {
         if (nomeCert.getText().toString().equals("")) {
-            Toast.makeText(getApplicationContext(), "Preencha o Nome Completo e clique em Gerar Certificado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.nameFullPleaseGen, Toast.LENGTH_SHORT).show();
         } else {
             String filepath = getExternalStorageDirectory() + "/AprendendoSQL/CertificadoSQLBasico.pdf";
             Uri arquivo = Uri.parse(filepath);
@@ -187,9 +187,9 @@ public class congratulationsActivity extends AppCompatActivity {
         File filePath = new File(targetPdf);
         try {
             documentoPDF.writeTo(new FileOutputStream(filePath));
-            Toast.makeText(getApplicationContext(), "Gerado com Sucesso..", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.generateSucess, Toast.LENGTH_SHORT).show();
         } catch (Exception f) {
-            Toast.makeText(getApplicationContext(), "Houve falha ao gerar o PDF. Detalhamento:   " + f, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "" + R.string.generateError + "" + f, Toast.LENGTH_LONG).show();
         }
         imagemCertificado.setVisibility(View.VISIBLE);
         shareImage.setVisibility(View.VISIBLE);
