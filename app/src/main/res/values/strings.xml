@@ -225,7 +225,7 @@
     <string name="exampleDB">Below we have a real example of a Dice Bank</string>
     <string name="forCreate">Then to create the table below, it would be the respective query</string>
     <string name="types">- to know more about Dice Type</string>
-    <string name="seeMore">VEJA MAIS</string>
+    <string name="seeMore">SEE MORE</string>
     <string name="hintQuery">type a query here..</string>
     <string name="pasteExample">paste example</string>
     <string name="sendQuery">send query</string>

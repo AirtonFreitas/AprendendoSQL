@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Avalie nosso App"
+            android:text="@string/rateThisApp"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Avalie nosso aplicativo"
+            android:text="@string/rateThisApp"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -111,7 +111,7 @@
             android:layout_marginTop="32dp"
             android:background="@drawable/rouded_corner_green"
             android:gravity="center"
-            android:text="AVALIAR"
+            android:text="@string/yesApp"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -123,16 +123,16 @@
             android:id="@+id/btnDonateBackID"
             android:layout_width="291dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
             android:background="@drawable/rouded_corner"
             android:padding="10dp"
-            android:text="Voltar"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/nomeBotaoVoltar"
+            app:layout_constraintBottom_toTopOf="@+id/adViewID"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/adViewID" />
+            app:layout_constraintTop_toBottomOf="@+id/imageFlutterID" />
 
         <TextView
             android:id="@+id/textView"
@@ -148,31 +148,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-        <TextView
-            android:id="@+id/textView37"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Clique nos anunciantes"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageFlutterID" />
-
         <com.google.android.gms.ads.AdView
             android:id="@+id/adViewID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
             app:adSize="BANNER"
             app:adUnitId="ca-app-pub-3721429763641925/6998483924"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView37">
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent">
 
         </com.google.android.gms.ads.AdView>
 
@@ -181,7 +168,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Você sabe programação mobile?"
+            android:text="@string/knowFlutter"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
